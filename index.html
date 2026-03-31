@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Microservices avec Spring Boot — Cours Complet en Français</title>
+<title>Plateforme J2EE & Microservices — Cours Complet en Français</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -12,13 +12,13 @@
 <!-- ██████████ HERO ██████████ -->
 <div class="hero">
   <div class="hero-badge">🎓 Cours Universitaire Complet</div>
-  <h1>Architecture Microservices<br>avec Spring Boot</h1>
-  <p class="hero-sub">Explication complète, claire et détaillée — comme si tu étais en amphi avec le professeur. Tout est couvert, de A à Z.</p>
+  <h1>Plateforme J2EE &amp;<br>Architecture Microservices</h1>
+  <p class="hero-sub">Deux modules complets en français — Architecture J2EE avec Servlets/JSP/JDBC et Microservices avec Spring Boot. Du traditionnel au moderne.</p>
   <div class="hero-chips">
     <span class="chip">👩‍🏫 <strong>Prof. Chemlal Yman</strong></span>
-    <span class="chip">📦 <strong>7 Parties</strong> analysées</span>
-    <span class="chip">☕ <strong>Java 17</strong> · Spring Boot 3.x</span>
-    <span class="chip">🗄️ <strong>JPA</strong> · REST · Postman</span>
+    <span class="chip">📦 <strong>2 Modules</strong> · 18+ Chapitres</span>
+    <span class="chip">☕ <strong>Java J2EE</strong> · Spring Boot 3.x</span>
+    <span class="chip">🗄️ <strong>MySQL</strong> · JDBC · JPA · REST</span>
     <span class="chip">🇫🇷 En Français</span>
   </div>
 </div>
@@ -27,7 +27,21 @@
 
 <!-- ██████████ TABLE DES MATIÈRES ██████████ -->
 <div class="toc">
-  <div class="toc-title">📋 Table des matières</div>
+  <div class="toc-title">📋 Table des matières — Les deux modules</div>
+
+  <div class="toc-section-label">📦 Module 1 — Plateforme J2EE (Servlet / JSP / JDBC)</div>
+  <div class="toc-grid">
+    <a href="#j2ee-ch1" class="toc-link"><span class="toc-n j2ee">J1</span>Architecture J2EE</a>
+    <a href="#j2ee-ch2" class="toc-link"><span class="toc-n j2ee">J2</span>Modèle MVC</a>
+    <a href="#j2ee-ch3" class="toc-link"><span class="toc-n j2ee">J3</span>Environnement Dev</a>
+    <a href="#j2ee-ch4" class="toc-link"><span class="toc-n j2ee">J4</span>Couche DAO &amp; JDBC</a>
+    <a href="#j2ee-ch5" class="toc-link"><span class="toc-n j2ee">J5</span>Le Modèle JavaBeans</a>
+    <a href="#j2ee-ch6" class="toc-link"><span class="toc-n j2ee">J6</span>Le Contrôleur Servlet</a>
+    <a href="#j2ee-ch7" class="toc-link"><span class="toc-n j2ee">J7</span>La Vue JSP &amp; JSTL</a>
+    <a href="#j2ee-exam" class="toc-link"><span class="toc-n j2ee">✏️</span>QCM J2EE</a>
+  </div>
+
+  <div class="toc-section-label">🌱 Module 2 — Microservices avec Spring Boot</div>
   <div class="toc-grid">
     <a href="#ch1" class="toc-link"><span class="toc-n">01</span>L'Architecture Monolithique</a>
     <a href="#ch2" class="toc-link"><span class="toc-n">02</span>Les Microservices</a>
@@ -41,8 +55,1002 @@
     <a href="#ch10" class="toc-link"><span class="toc-n">10</span>Spring Data JPA</a>
     <a href="#ch11" class="toc-link"><span class="toc-n">11</span>Architecture 3 couches</a>
     <a href="#ch12" class="toc-link"><span class="toc-n">12</span>Gestion erreurs &amp; validation</a>
-    <a href="#exam" class="toc-link"><span class="toc-n">✏️</span>Exercices &amp; QCM</a>
+    <a href="#exam" class="toc-link"><span class="toc-n">✏️</span>Exercices &amp; QCM Spring</a>
   </div>
+</div>
+
+
+<!-- ████████████████████████████████████████
+     MODULE 1 — J2EE BANNER
+████████████████████████████████████████ -->
+<div class="module-banner j2ee">
+  <div class="module-icon">☕</div>
+  <div class="module-info">
+    <h2>Module 1 — La Plateforme J2EE</h2>
+    <p>Architecture multicouche, Servlets, JSP, JSTL, JDBC et le patron DAO — le fondement du développement Java web entreprise.</p>
+  </div>
+  <span class="module-badge j2ee">J2EE · Tomcat · MySQL</span>
+</div>
+
+<!-- ████████████████████████████████████████
+     J2EE CHAPITRE 1 — ARCHITECTURE J2EE
+████████████████████████████████████████ -->
+<div class="chapter" id="j2ee-ch1">
+  <div class="ch-header">
+    <div class="ch-num-wrap">
+      <span class="ch-num j2ee">PARTIE J1</span>
+      <span class="ch-emoji">🏗️</span>
+    </div>
+    <div class="ch-info">
+      <h2>Introduction à l'Architecture J2EE</h2>
+      <p>Architecture multicouche standardisée pour les applications d'entreprise — la base de tout développement Java Web.</p>
+    </div>
+  </div>
+
+  <h3 class="j2ee-h3">Concept de base : Architecture n-tiers</h3>
+  <p>J2EE propose une architecture <strong>multicouche (n-tier)</strong> standardisée conçue pour les applications d'entreprise. L'objectif principal est la <strong>séparation des responsabilités</strong> : chaque couche a un rôle précis et bien délimité.</p>
+
+  <div class="def j2ee-def">
+    <div class="def-label j2ee">📖 Définition — Architecture J2EE</div>
+    <p>J2EE (Java 2 Enterprise Edition) est une plateforme Java standardisée pour le développement d'applications web d'entreprise. Elle repose sur un <strong>serveur d'application Tomcat</strong> (Conteneur de Servlets) et une architecture en trois couches distinctes.</p>
+  </div>
+
+  <h3 class="j2ee-h3">Les 3 couches de l'Architecture J2EE</h3>
+  <div class="cards">
+    <div class="card j2ee-card">
+      <div class="card-top">
+        <div class="card-icon" style="background:rgba(251,146,60,0.12)">🌐</div>
+        <h4>Couche WEB</h4>
+      </div>
+      <div class="card-body">
+        <p><strong>Rôle :</strong> Gère l'interaction utilisateur.</p>
+        <p><strong>Technologies :</strong> Servlet (Contrôleur), JSP (Vue)</p>
+        <p>C'est le point d'entrée de toutes les requêtes HTTP venant du navigateur client.</p>
+      </div>
+    </div>
+    <div class="card j2ee-card">
+      <div class="card-top">
+        <div class="card-icon" style="background:rgba(192,132,252,0.12)">🧠</div>
+        <h4>Couche Métier</h4>
+      </div>
+      <div class="card-body">
+        <p><strong>Rôle :</strong> Contient les règles de gestion.</p>
+        <p><strong>Technologies :</strong> Services (EJB, Spring)</p>
+        <p>Toute la logique applicative réside ici — calculs, validations, règles business.</p>
+      </div>
+    </div>
+    <div class="card j2ee-card">
+      <div class="card-top">
+        <div class="card-icon" style="background:rgba(52,211,153,0.12)">🗄️</div>
+        <h4>Couche DAO</h4>
+      </div>
+      <div class="card-body">
+        <p><strong>Rôle :</strong> Gère l'accès aux données (Persistance).</p>
+        <p><strong>Technologies :</strong> Hibernate, JDBC</p>
+        <p>Abstraction de la base de données — c'est ici que se trouvent les requêtes SQL.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="j2ee-h3">Diagramme de l'Architecture J2EE</h3>
+  <div class="arch-diagram">
+    <div class="arch-layers">
+      <div class="arch-client">
+        <div class="arch-client-box">
+          <div class="acb-label">Client Léger</div>
+          HTML · CSS<br>JavaScript · Ajax
+        </div>
+        <div style="text-align:center;font-size:11px;color:var(--muted);margin:4px 0">⬆ HTTP ⬇</div>
+        <div class="arch-client-box">
+          <div class="acb-label">Client Lourd</div>
+          AWT · SWING · SWT
+        </div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-server">
+        <div class="arch-server-header">🖥️ Serveur d'Application : TOMCAT</div>
+        <div class="arch-server-body">
+          <div class="arch-layer-box">
+            <div class="alb-title" style="color:var(--accent5)">Couche WEB</div>
+            <div class="alb-item">Contrôleur Servlet</div>
+            <div class="alb-item">Modèle JavaBeans</div>
+            <div class="alb-item">Vue JSP</div>
+            <div class="alb-item">Spring MVC</div>
+          </div>
+          <div class="arch-layer-box">
+            <div class="alb-title" style="color:var(--accent4)">Couche Métier</div>
+            <div class="alb-item">Services</div>
+            <div class="alb-item">EJB</div>
+            <div class="alb-item">Couche Service</div>
+          </div>
+          <div class="arch-layer-box">
+            <div class="alb-title" style="color:var(--accent2)">Couche DAO</div>
+            <div class="alb-item">IProduitDao</div>
+            <div class="alb-item">ProduitDaoImpl</div>
+            <div class="alb-item">Hibernate</div>
+            <div class="alb-item">JDBC</div>
+          </div>
+        </div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-db">
+        <div class="arch-db-box">🗄️ SGBD<br>MySQL</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="j2ee-h3">Caractéristiques de l'Architecture</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="j2ee">Caractéristique</th><th class="j2ee">Description</th><th class="j2ee">Bénéfice</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Modularité</strong></td><td>Chaque couche a un rôle spécifique et bien défini</td><td class="ok">Maintenance simplifiée, code organisé</td></tr>
+        <tr><td><strong>Scalabilité</strong></td><td>Possibilité de déployer les couches sur différents serveurs</td><td class="ok">Serveur web séparé du serveur de BDD</td></tr>
+        <tr><td><strong>Interopérabilité</strong></td><td>Utilisation de protocoles standards : HTTP, RMI</td><td class="ok">Compatible avec tous les clients</td></tr>
+        <tr><td><strong>Maintenabilité</strong></td><td>Architecture standardisée, bien documentée</td><td class="ok">Facilite l'évolution de l'application</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="resume j2ee-resume">
+    <div class="resume-title j2ee">📌 Résumé — J2EE Architecture</div>
+    <ul>
+      <li>J2EE = plateforme Java standardisée pour les applications d'entreprise</li>
+      <li>3 couches : <strong>Web (Servlet/JSP)</strong> + <strong>Métier (Services)</strong> + <strong>DAO (JDBC/Hibernate)</strong></li>
+      <li>Serveur d'application = <strong>Apache Tomcat</strong> (Conteneur de Servlets)</li>
+      <li>Objectif : séparation des responsabilités, maintenabilité, scalabilité</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="sep j2ee">
+
+<!-- ████████████████████████████████████████
+     J2EE CHAPITRE 2 — MVC
+████████████████████████████████████████ -->
+<div class="chapter" id="j2ee-ch2">
+  <div class="ch-header">
+    <div class="ch-num-wrap">
+      <span class="ch-num j2ee">PARTIE J2</span>
+      <span class="ch-emoji">🔄</span>
+    </div>
+    <div class="ch-info">
+      <h2>Le Modèle MVC (Modèle-Vue-Contrôleur)</h2>
+      <p>Le cœur du design pattern de la couche Web J2EE — la séparation entre données, affichage et logique.</p>
+    </div>
+  </div>
+
+  <h3 class="j2ee-h3">Les 3 composants du MVC</h3>
+
+  <div class="cards">
+    <div class="card j2ee-card">
+      <div class="card-top">
+        <div class="card-icon" style="background:rgba(96,165,250,0.12)">🎮</div>
+        <h4>Le Contrôleur (Servlet)</h4>
+      </div>
+      <div class="card-body">
+        <p><strong>C'est le "chef d'orchestre".</strong></p>
+        <p>Il reçoit la requête HTTP du client, appelle la logique métier et choisit la page suivante à afficher.</p>
+        <p><strong>Classe Java :</strong> <code class="j2ee">ControllerServlet.java</code></p>
+      </div>
+    </div>
+    <div class="card j2ee-card">
+      <div class="card-top">
+        <div class="card-icon" style="background:rgba(52,211,153,0.12)">📦</div>
+        <h4>Le Modèle (JavaBeans)</h4>
+      </div>
+      <div class="card-body">
+        <p><strong>Ce sont les objets de transport de données.</strong></p>
+        <p>Exemples : un objet <code class="j2ee">Produit</code> ou <code class="j2ee">Utilisateur</code> avec attributs privés et getters/setters.</p>
+        <p><strong>Classe Java :</strong> <code class="j2ee">Produit.java</code></p>
+      </div>
+    </div>
+    <div class="card j2ee-card">
+      <div class="card-top">
+        <div class="card-icon" style="background:rgba(192,132,252,0.12)">🖼️</div>
+        <h4>La Vue (JSP)</h4>
+      </div>
+      <div class="card-body">
+        <p><strong>C'est la page HTML dynamique.</strong></p>
+        <p>Elle affiche les données contenues dans le Modèle. En J2EE moderne, on utilise <strong>JSTL</strong> et l'<strong>Expression Language (EL)</strong>.</p>
+        <p><strong>Fichier :</strong> <code class="j2ee">produits.jsp</code></p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="j2ee-h3">Flux d'exécution MVC complet</h3>
+  <div class="flow">
+    <div class="fbox"><div class="fb fb-bl">Client HTTP</div><div class="fl">Tape URL dans navigateur</div></div>
+    <div class="farr">→</div>
+    <div class="fbox"><div class="fb fb-or">Tomcat</div><div class="fl">Intercepte *.do</div></div>
+    <div class="farr">→</div>
+    <div class="fbox"><div class="fb fb-or">Contrôleur Servlet</div><div class="fl">Analyse URL, appelle DAO</div></div>
+    <div class="farr">→</div>
+    <div class="fbox"><div class="fb fb-pu">DAO JDBC</div><div class="fl">Interroge MySQL</div></div>
+    <div class="farr">→</div>
+    <div class="fbox"><div class="fb fb-or">Servlet</div><div class="fl">setAttribute + forward</div></div>
+    <div class="farr">→</div>
+    <div class="fbox"><div class="fb fb-gr">JSP Vue</div><div class="fl">Génère HTML final</div></div>
+  </div>
+
+  <div class="note orange">
+    <div class="note-icon">💡</div>
+    <div class="note-body">
+      <div class="note-title">Frameworks populaires MVC</div>
+      <p><strong>Struts</strong>, <strong>JSF</strong> et <strong>Spring MVC</strong> automatisent ce flux MVC. Spring MVC est le plus utilisé aujourd'hui — il évolue vers Spring Boot que nous étudions dans le Module 2.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="sep j2ee">
+
+<!-- ████████████████████████████████████████
+     J2EE CHAPITRE 3 — ENVIRONNEMENT
+████████████████████████████████████████ -->
+<div class="chapter" id="j2ee-ch3">
+  <div class="ch-header">
+    <div class="ch-num-wrap">
+      <span class="ch-num j2ee">PARTIE J3</span>
+      <span class="ch-emoji">🛠️</span>
+    </div>
+    <div class="ch-info">
+      <h2>Environnement de Développement J2EE</h2>
+      <p>L'ensemble des outils logiciels nécessaires pour compiler, exécuter et tester une application J2EE.</p>
+    </div>
+  </div>
+
+  <h3 class="j2ee-h3">Les outils indispensables</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="j2ee">Outil</th><th class="j2ee">Version recommandée</th><th class="j2ee">Rôle</th><th class="j2ee">Téléchargement</th></tr></thead>
+      <tbody>
+        <tr><td><strong>JDK (Java)</strong></td><td>8 ou supérieure</td><td>Langage de programmation Java</td><td><code>java -version</code></td></tr>
+        <tr><td><strong>Eclipse IDE</strong></td><td>Enterprise Java Developers</td><td>IDE avec support Tomcat, JPA, JSF intégré</td><td>eclipse.org</td></tr>
+        <tr><td><strong>Apache Tomcat</strong></td><td>9.0 ou 10.1</td><td>Serveur d'application / Conteneur de Servlets</td><td>tomcat.apache.org</td></tr>
+        <tr><td><strong>MySQL Server</strong></td><td>8.0</td><td>SGBD pour le stockage des données</td><td>dev.mysql.com</td></tr>
+        <tr><td><strong>MySQL Workbench</strong></td><td>Inclus dans MySQL Installer</td><td>Interface graphique pour gérer la BDD</td><td>Inclus dans Developer Default</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="j2ee-h3">⚙️ Configuration MySQL — Base de données Gestion_Produits</h3>
+  <div class="code-wrap">
+    <div class="code-bar">
+      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
+      <span class="code-lang j2ee">sql</span>
+      <span class="code-filename">MySQL Workbench — Création de la base</span>
+    </div>
+    <pre><span class="cmt">-- Créer la base de données</span>
+<span class="kw">CREATE DATABASE</span> db_produits;
+<span class="kw">USE</span> db_produits;
+
+<span class="cmt">-- Créer la table PRODUITS</span>
+<span class="kw">CREATE TABLE</span> <span class="cls">PRODUITS</span> (
+    ID          <span class="cls">INT</span> <span class="kw">AUTO_INCREMENT PRIMARY KEY</span>,
+    DESIGNATION <span class="cls">VARCHAR</span>(<span class="num">100</span>),
+    PRIX        <span class="cls">DOUBLE</span>,
+    QUANTITE    <span class="cls">INT</span>
+);
+
+<span class="cmt">-- Insérer des données de test</span>
+<span class="kw">INSERT INTO</span> PRODUITS (DESIGNATION, PRIX, QUANTITE) <span class="kw">VALUES</span>
+    (<span class="str">'Ordinateur HP Pavilion'</span>, <span class="num">750.00</span>, <span class="num">10</span>),
+    (<span class="str">'Imprimante Canon Pixma'</span>, <span class="num">120.50</span>, <span class="num">5</span>),
+    (<span class="str">'Souris Logitetch sans fil'</span>, <span class="num">25.99</span>, <span class="num">50</span>),
+    (<span class="str">'Clavier Mécanique RGB'</span>, <span class="num">89.00</span>, <span class="num">15</span>);</pre>
+  </div>
+
+  <h3 class="j2ee-h3">🗂️ Structure du projet Eclipse</h3>
+  <div class="code-wrap">
+    <div class="code-bar">
+      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
+      <span class="code-lang j2ee">arborescence</span>
+      <span class="code-filename">Gestion_Produits — Structure Eclipse</span>
+    </div>
+    <pre>Gestion_Produits/
+├── src/main/java/
+│   └── com.gestion/
+│       ├── <span class="ann">dao/</span>
+│       │   ├── <span class="cls">IProduitDao.java</span>         <span class="cmt">← Interface DAO (le contrat)</span>
+│       │   ├── <span class="cls">ProduitDaoImpl.java</span>      <span class="cmt">← Implémentation JDBC</span>
+│       │   └── <span class="cls">SingletonConnection.java</span> <span class="cmt">← Connexion unique MySQL</span>
+│       ├── <span class="ann">model/</span>
+│       │   └── <span class="cls">Produit.java</span>             <span class="cmt">← JavaBean (données)</span>
+│       └── <span class="ann">web/</span>
+│           └── <span class="cls">ControllerServlet.java</span>  <span class="cmt">← Contrôleur HTTP</span>
+└── src/main/webapp/
+    ├── <span class="ann">WEB-INF/</span>
+    │   └── lib/
+    │       ├── mysql-connector-j-9.6.0.jar  <span class="cmt">← Driver MySQL</span>
+    │       └── jstl-1.2.jar                 <span class="cmt">← Bibliothèque JSP Tags</span>
+    └── <span class="cls">produits.jsp</span>                    <span class="cmt">← Page d'affichage (Vue)</span></pre>
+  </div>
+
+  <div class="note warn">
+    <div class="note-icon">⚠️</div>
+    <div class="note-body">
+      <div class="note-title">Action indispensable : Add to Build Path</div>
+      <p>Après avoir copié les fichiers <code>.jar</code> dans <code>WEB-INF/lib</code>, il faut les déclarer au compilateur : <strong>clic droit sur les .jar → Build Path → Add to Build Path</strong>. Sans cette étape, Eclipse ne sait pas qu'il doit les utiliser pour compiler le code.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="sep j2ee">
+
+<!-- ████████████████████████████████████████
+     J2EE CHAPITRE 4 — COUCHE DAO & JDBC
+████████████████████████████████████████ -->
+<div class="chapter" id="j2ee-ch4">
+  <div class="ch-header">
+    <div class="ch-num-wrap">
+      <span class="ch-num j2ee">PARTIE J4</span>
+      <span class="ch-emoji">🔌</span>
+    </div>
+    <div class="ch-info">
+      <h2>La Couche DAO — JDBC &amp; Singleton Connection</h2>
+      <p>Le patron DAO (Data Access Object) et la connexion JDBC via le pattern Singleton.</p>
+    </div>
+  </div>
+
+  <h3 class="j2ee-h3">Qu'est-ce que le patron DAO ?</h3>
+  <div class="def j2ee-def">
+    <div class="def-label j2ee">📖 DAO = Data Access Object</div>
+    <p>Le DAO est un <strong>design pattern</strong> qui fait l'interface entre l'application et la base de données, afin de masquer la complexité du SQL. On manipule des objets Java au lieu d'écrire du SQL directement dans le code métier.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="j2ee">Avantage</th><th class="j2ee">Explication</th></tr></thead>
+      <tbody>
+        <tr><td class="ok"><strong>Abstraction</strong></td><td>On manipule des objets Java, pas du SQL directement</td></tr>
+        <tr><td class="ok"><strong>Séparation Interface/Implémentation</strong></td><td>Interface = le contrat (QUOI), Implémentation = le code JDBC (COMMENT)</td></tr>
+        <tr><td class="ok"><strong>Indépendance BDD</strong></td><td>Changer de MySQL à Oracle ? On ne modifie que le DAO</td></tr>
+        <tr><td class="ok"><strong>Testabilité</strong></td><td>Peut être mocké pour les tests unitaires</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="j2ee-h3">Étape 1 — La Connexion Singleton</h3>
+  <p>Le <strong>Singleton</strong> garantit qu'une seule instance de connexion MySQL existe dans toute l'application. Ouvrir une nouvelle connexion à chaque requête ferait saturer le serveur MySQL.</p>
+
+  <div class="code-wrap">
+    <div class="code-bar">
+      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
+      <span class="code-lang j2ee">java</span>
+      <span class="code-filename">dao/SingletonConnection.java — Annoté ligne par ligne</span>
+    </div>
+    <pre><span class="kw">package</span> com.gestion.dao;
+
+<span class="kw">import</span> java.sql.Connection;
+<span class="kw">import</span> java.sql.DriverManager;
+
+<span class="kw">public class</span> <span class="cls">SingletonConnection</span> {
+
+    <span class="cmt">// 1. Instance UNIQUE partagée par tous les utilisateurs (static)</span>
+    <span class="kw">private static</span> <span class="cls">Connection</span> connection;
+
+    <span class="cmt">// 2. Bloc statique : s'exécute UNE SEULE FOIS au chargement de la classe</span>
+    <span class="kw">static</span> {
+        <span class="kw">try</span> {
+            <span class="cmt">// 3. Charger le pilote JDBC MySQL en mémoire</span>
+            <span class="cls">Class</span>.<span class="fn">forName</span>(<span class="str">"com.mysql.cj.jdbc.Driver"</span>);
+
+            <span class="cmt">// 4. Établir la connexion (protocole://hôte:port/base, user, mdp)</span>
+            connection = <span class="cls">DriverManager</span>.<span class="fn">getConnection</span>(
+                <span class="str">"jdbc:mysql://localhost:3306/db_produits"</span>,
+                <span class="str">"root"</span>,
+                <span class="str">"admin"</span>
+            );
+            <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"Connexion réussie à MySQL !"</span>);
+
+        } <span class="kw">catch</span> (<span class="cls">Exception</span> e) {
+            <span class="cmt">// 5. Si erreur : afficher sans planter tout le serveur</span>
+            e.<span class="fn">printStackTrace</span>();
+        }
+    }
+
+    <span class="cmt">// 6. Point d'accès unique — appelé par le DAO pour obtenir la connexion</span>
+    <span class="kw">public static</span> <span class="cls">Connection</span> <span class="fn">getConnection</span>() {
+        <span class="kw">return</span> connection;
+    }
+}</pre>
+  </div>
+
+  <h3 class="j2ee-h3">Étape 2 — L'Interface DAO (Le Contrat)</h3>
+  <div class="code-wrap">
+    <div class="code-bar">
+      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
+      <span class="code-lang j2ee">java</span>
+      <span class="code-filename">dao/IProduitDao.java — L'interface (QUOI faire)</span>
+    </div>
+    <pre><span class="kw">public interface</span> <span class="cls">IProduitDao</span> {
+
+    <span class="cmt">// Opérations CRUD standards (Convention de nommage)</span>
+    <span class="kw">public</span> <span class="cls">Produit</span>       <span class="fn">save</span>(<span class="cls">Produit</span> p);       <span class="cmt">// CREATE</span>
+    <span class="kw">public</span> List&lt;<span class="cls">Produit</span>&gt; <span class="fn">findAll</span>();               <span class="cmt">// READ ALL</span>
+    <span class="kw">public</span> List&lt;<span class="cls">Produit</span>&gt; <span class="fn">produitsParMC</span>(<span class="cls">String</span> mc); <span class="cmt">// SEARCH (mot clé)</span>
+    <span class="kw">public void</span>          <span class="fn">deleteProduit</span>(<span class="cls">Long</span> id);   <span class="cmt">// DELETE</span>
+}</pre>
+  </div>
+
+  <h3 class="j2ee-h3">Étape 3 — L'Implémentation JDBC</h3>
+  <div class="code-wrap">
+    <div class="code-bar">
+      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
+      <span class="code-lang j2ee">java</span>
+      <span class="code-filename">dao/ProduitDaoImpl.java — La méthode save() annotée</span>
+    </div>
+    <pre><span class="kw">public class</span> <span class="cls">ProduitDaoImpl</span> <span class="kw">implements</span> <span class="cls">IProduitDao</span> {
+
+    <span class="ann">@Override</span>
+    <span class="kw">public</span> <span class="cls">Produit</span> <span class="fn">save</span>(<span class="cls">Produit</span> p) {
+
+        <span class="cmt">// Récupère la connexion existante (Singleton)</span>
+        <span class="cls">Connection</span> conn = <span class="cls">SingletonConnection</span>.<span class="fn">getConnection</span>();
+
+        <span class="kw">try</span> {
+            <span class="cmt">// PreparedStatement : sécurisé contre les Injections SQL (utilise "?")</span>
+            <span class="cls">PreparedStatement</span> ps = conn.<span class="fn">prepareStatement</span>(
+                <span class="str">"INSERT INTO PRODUITS(DESIGNATION, PRIX, QUANTITE) VALUES(?,?,?)"</span>
+            );
+
+            <span class="cmt">// "Mapping" : Objet Java → Paramètres SQL</span>
+            ps.<span class="fn">setString</span>(<span class="num">1</span>, p.<span class="fn">getDesignation</span>());   <span class="cmt">// 1er ?</span>
+            ps.<span class="fn">setDouble</span>(<span class="num">2</span>, p.<span class="fn">getPrix</span>());           <span class="cmt">// 2e ?</span>
+            ps.<span class="fn">setInt</span>(<span class="num">3</span>, p.<span class="fn">getQuantite</span>());        <span class="cmt">// 3e ?</span>
+
+            <span class="cmt">// Exécuter → génère INSERT INTO PRODUITS VALUES(...);</span>
+            ps.<span class="fn">executeUpdate</span>();
+
+        } <span class="kw">catch</span> (<span class="cls">SQLException</span> e) {
+            e.<span class="fn">printStackTrace</span>();  <span class="cmt">// Affiche l'erreur sans crasher Tomcat</span>
+        }
+        <span class="kw">return</span> p;
+    }
+
+    <span class="ann">@Override</span>
+    <span class="kw">public</span> List&lt;<span class="cls">Produit</span>&gt; <span class="fn">produitsParMC</span>(<span class="cls">String</span> mc) {
+        List&lt;<span class="cls">Produit</span>&gt; liste = <span class="kw">new</span> ArrayList&lt;&gt;();
+        <span class="kw">try</span> {
+            <span class="cls">PreparedStatement</span> ps = <span class="cls">SingletonConnection</span>.<span class="fn">getConnection</span>()
+                .<span class="fn">prepareStatement</span>(<span class="str">"SELECT * FROM PRODUITS WHERE DESIGNATION LIKE ?"</span>);
+            ps.<span class="fn">setString</span>(<span class="num">1</span>, <span class="str">"%" + mc + "%"</span>);
+            <span class="cls">ResultSet</span> rs = ps.<span class="fn">executeQuery</span>();
+            <span class="kw">while</span> (rs.<span class="fn">next</span>()) {
+                liste.<span class="fn">add</span>(<span class="kw">new</span> <span class="cls">Produit</span>(
+                    rs.<span class="fn">getString</span>(<span class="str">"DESIGNATION"</span>),
+                    rs.<span class="fn">getDouble</span>(<span class="str">"PRIX"</span>),
+                    rs.<span class="fn">getInt</span>(<span class="str">"QUANTITE"</span>)
+                ));
+            }
+        } <span class="kw">catch</span> (<span class="cls">SQLException</span> e) { e.<span class="fn">printStackTrace</span>(); }
+        <span class="kw">return</span> liste;
+    }
+}</pre>
+  </div>
+
+  <h3 class="j2ee-h3">🔍 executeUpdate vs executeQuery</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="j2ee">Méthode</th><th class="j2ee">Quand l'utiliser</th><th class="j2ee">SQL correspondant</th><th class="j2ee">Retour</th></tr></thead>
+      <tbody>
+        <tr><td><code>executeUpdate()</code></td><td>Modifier la base</td><td>INSERT, UPDATE, DELETE</td><td>Nombre de lignes affectées (int)</td></tr>
+        <tr><td><code>executeQuery()</code></td><td>Lire la base</td><td>SELECT</td><td>ResultSet (objet de résultats)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="resume j2ee-resume">
+    <div class="resume-title j2ee">📌 Résumé — Couche DAO</div>
+    <ul>
+      <li><strong>Singleton</strong> = une seule connexion MySQL pour toute l'application (performance)</li>
+      <li><strong>Interface</strong> = définit le contrat (findAll, save, delete...) sans le code</li>
+      <li><strong>PreparedStatement</strong> = requêtes paramétrées avec <code>?</code> → protection contre les injections SQL</li>
+      <li><code>executeUpdate()</code> pour les modifications, <code>executeQuery()</code> pour les lectures</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="sep j2ee">
+
+<!-- ████████████████████████████████████████
+     J2EE CHAPITRE 5 — MODÈLE JAVABEANS
+████████████████████████████████████████ -->
+<div class="chapter" id="j2ee-ch5">
+  <div class="ch-header">
+    <div class="ch-num-wrap">
+      <span class="ch-num j2ee">PARTIE J5</span>
+      <span class="ch-emoji">🫘</span>
+    </div>
+    <div class="ch-info">
+      <h2>Le Modèle — JavaBeans</h2>
+      <p>Les objets qui transportent les données entre les couches de l'application J2EE.</p>
+    </div>
+  </div>
+
+  <h3 class="j2ee-h3">Définition et Caractéristiques</h3>
+  <div class="def j2ee-def">
+    <div class="def-label j2ee">📖 JavaBean</div>
+    <p>Un <strong>JavaBean</strong> est un composant logiciel réutilisable servant à encapsuler plusieurs objets en un seul — souvent une ligne de base de données. Exemple : un objet <code>Produit</code> représente une ligne de la table <code>PRODUITS</code>.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card j2ee-card">
+      <div class="card-top"><div class="card-icon" style="background:rgba(251,146,60,0.12)">🔒</div><h4>Attributs Privés</h4></div>
+      <div class="card-body"><p>Tous les attributs sont <code>private</code>. Encapsulation = personne ne peut les modifier directement depuis l'extérieur.</p></div>
+    </div>
+    <div class="card j2ee-card">
+      <div class="card-top"><div class="card-icon" style="background:rgba(192,132,252,0.12)">🏗️</div><h4>Constructeur vide</h4></div>
+      <div class="card-body"><p>Doit posséder un <strong>constructeur sans argument</strong> (par défaut). Requis par les frameworks (JSTL, JSP, Hibernate).</p></div>
+    </div>
+    <div class="card j2ee-card">
+      <div class="card-top"><div class="card-icon" style="background:rgba(52,211,153,0.12)">📡</div><h4>Sérialisable</h4></div>
+      <div class="card-body"><p>Doit implémenter <code>java.io.Serializable</code> pour pouvoir circuler sur le réseau entre serveurs.</p></div>
+    </div>
+    <div class="card j2ee-card">
+      <div class="card-top"><div class="card-icon" style="background:rgba(96,165,250,0.12)">🔧</div><h4>Getters &amp; Setters</h4></div>
+      <div class="card-body"><p><code>getNom()</code> = Accesseur (lecture). <code>setNom(String n)</code> = Mutateur (écriture). La JSP utilise les Getters via <code>${p.nom}</code>.</p></div>
+    </div>
+  </div>
+
+  <div class="code-wrap">
+    <div class="code-bar">
+      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
+      <span class="code-lang j2ee">java</span>
+      <span class="code-filename">model/Produit.java — JavaBean complet</span>
+    </div>
+    <pre><span class="kw">package</span> com.gestion.model;
+
+<span class="kw">import</span> java.io.Serializable;
+
+<span class="cmt">// Sérialisable : peut voyager sur le réseau entre serveurs</span>
+<span class="kw">public class</span> <span class="cls">Produit</span> <span class="kw">implements</span> <span class="cls">Serializable</span> {
+
+    <span class="cmt">// RÈGLE 1 : Attributs PRIVÉS</span>
+    <span class="kw">private</span> <span class="cls">Long</span>   id;
+    <span class="kw">private</span> <span class="cls">String</span> designation;
+    <span class="kw">private double</span> prix;
+    <span class="kw">private int</span>    quantite;
+
+    <span class="cmt">// RÈGLE 2 : Constructeur VIDE (obligatoire)</span>
+    <span class="kw">public</span> <span class="fn">Produit</span>() {}
+
+    <span class="cmt">// Constructeur avec arguments (pratique)</span>
+    <span class="kw">public</span> <span class="fn">Produit</span>(<span class="cls">String</span> designation, <span class="kw">double</span> prix, <span class="kw">int</span> quantite) {
+        <span class="kw">this</span>.designation = designation;
+        <span class="kw">this</span>.prix = prix;
+        <span class="kw">this</span>.quantite = quantite;
+    }
+
+    <span class="cmt">// RÈGLE 3 : Getters et Setters (générés par Eclipse : Alt+Insert)</span>
+    <span class="kw">public</span> <span class="cls">Long</span>   <span class="fn">getId</span>()               { <span class="kw">return</span> id; }
+    <span class="kw">public void</span>   <span class="fn">setId</span>(<span class="cls">Long</span> id)          { <span class="kw">this</span>.id = id; }
+
+    <span class="kw">public</span> <span class="cls">String</span> <span class="fn">getDesignation</span>()       { <span class="kw">return</span> designation; }
+    <span class="kw">public void</span>   <span class="fn">setDesignation</span>(<span class="cls">String</span> d){ <span class="kw">this</span>.designation = d; }
+
+    <span class="kw">public double</span> <span class="fn">getPrix</span>()              { <span class="kw">return</span> prix; }
+    <span class="kw">public void</span>   <span class="fn">setPrix</span>(<span class="kw">double</span> prix)   { <span class="kw">this</span>.prix = prix; }
+
+    <span class="kw">public int</span>    <span class="fn">getQuantite</span>()          { <span class="kw">return</span> quantite; }
+    <span class="kw">public void</span>   <span class="fn">setQuantite</span>(<span class="kw">int</span> q)    { <span class="kw">this</span>.quantite = q; }
+}</pre>
+  </div>
+
+  <div class="note info">
+    <div class="note-icon">🔗</div>
+    <div class="note-body">
+      <div class="note-title">Lien avec la JSP — Comment la Vue lit les données</div>
+      <p>En JSP, écrire <code>${p.designation}</code> n'accède pas directement à l'attribut privé. La JSP appelle automatiquement la méthode <strong>Getter</strong> correspondante : <code>p.getDesignation()</code>. Si tu n'as pas de Getter, tu obtiens une erreur.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="sep j2ee">
+
+<!-- ████████████████████████████████████████
+     J2EE CHAPITRE 6 — CONTRÔLEUR SERVLET
+████████████████████████████████████████ -->
+<div class="chapter" id="j2ee-ch6">
+  <div class="ch-header">
+    <div class="ch-num-wrap">
+      <span class="ch-num j2ee">PARTIE J6</span>
+      <span class="ch-emoji">🎮</span>
+    </div>
+    <div class="ch-info">
+      <h2>Le Contrôleur — La Servlet</h2>
+      <p>Composant Java qui reçoit les requêtes HTTP et orchestre le flux MVC entre le DAO et la JSP.</p>
+    </div>
+  </div>
+
+  <h3 class="j2ee-h3">Rôles de la Servlet</h3>
+  <div class="cards">
+    <div class="card j2ee-card">
+      <div class="card-top"><div class="card-icon" style="background:rgba(251,146,60,0.12)">📬</div><h4>Réceptionniste HTTP</h4></div>
+      <div class="card-body"><p>Intercepte toutes les requêtes dont l'URL se termine par <code>.do</code> grâce à <code>@WebServlet("*.do")</code>.</p></div>
+    </div>
+    <div class="card j2ee-card">
+      <div class="card-top"><div class="card-icon" style="background:rgba(192,132,252,0.12)">🔀</div><h4>Routeur d'actions</h4></div>
+      <div class="card-body"><p>Analyse le chemin de l'URL (<code>/index.do</code>, <code>/chercher.do</code>) et appelle la méthode DAO correspondante.</p></div>
+    </div>
+    <div class="card j2ee-card">
+      <div class="card-top"><div class="card-icon" style="background:rgba(52,211,153,0.12)">📦</div><h4>Transporteur de données</h4></div>
+      <div class="card-body"><p>Stocke le résultat dans l'objet <code>request</code> via <code>setAttribute()</code>, puis fait un <code>forward</code> vers la JSP.</p></div>
+    </div>
+  </div>
+
+  <div class="code-wrap">
+    <div class="code-bar">
+      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
+      <span class="code-lang j2ee">java</span>
+      <span class="code-filename">web/ControllerServlet.java — Annoté ligne par ligne</span>
+    </div>
+    <pre><span class="ann">@WebServlet</span>(name=<span class="str">"cs"</span>, urlPatterns={<span class="str">"*.do"</span>})
+<span class="cmt">// ↑ Intercepte TOUTES les URLs finissant par .do (/index.do, /chercher.do...)</span>
+<span class="kw">public class</span> <span class="cls">ControllerServlet</span> <span class="kw">extends</span> <span class="cls">HttpServlet</span> {
+
+    <span class="kw">private</span> <span class="cls">IProduitDao</span> dao;
+
+    <span class="ann">@Override</span>
+    <span class="kw">public void</span> <span class="fn">init</span>() <span class="kw">throws</span> <span class="cls">ServletException</span> {
+        <span class="cmt">// S'exécute UNE SEULE FOIS au démarrage — parfait pour instancier le DAO</span>
+        dao = <span class="kw">new</span> <span class="cls">ProduitDaoImpl</span>();
+    }
+
+    <span class="ann">@Override</span>
+    <span class="kw">protected void</span> <span class="fn">doGet</span>(<span class="cls">HttpServletRequest</span> request, <span class="cls">HttpServletResponse</span> response)
+            <span class="kw">throws</span> <span class="cls">ServletException</span>, <span class="cls">IOException</span> {
+
+        <span class="cmt">// ÉTAPE 1 : Récupérer le chemin de l'URL (/index.do, /chercher.do...)</span>
+        <span class="cls">String</span> path = request.<span class="fn">getServletPath</span>();
+
+        <span class="cmt">// ÉTAPE 2 : Routage via if/else selon l'action demandée</span>
+        <span class="kw">if</span> (path.<span class="fn">equals</span>(<span class="str">"/index.do"</span>)) {
+            <span class="cmt">// Afficher TOUS les produits (mot-clé vide = tout retourner)</span>
+            List&lt;<span class="cls">Produit</span>&gt; prods = dao.<span class="fn">produitsParMC</span>(<span class="str">""</span>);
+
+            <span class="cmt">// ÉTAPE 3 : Stocker dans request (le "coffre" de la requête)</span>
+            request.<span class="fn">setAttribute</span>(<span class="str">"produits"</span>, prods);
+
+            <span class="cmt">// ÉTAPE 4 : Forward vers la Vue JSP</span>
+            request.<span class="fn">getRequestDispatcher</span>(<span class="str">"produits.jsp"</span>).<span class="fn">forward</span>(request, response);
+
+        } <span class="kw">else if</span> (path.<span class="fn">equals</span>(<span class="str">"/chercher.do"</span>)) {
+            <span class="cmt">// Récupérer la valeur saisie dans le champ HTML name="motCle"</span>
+            <span class="cls">String</span> mc = request.<span class="fn">getParameter</span>(<span class="str">"motCle"</span>);
+            List&lt;<span class="cls">Produit</span>&gt; prods = dao.<span class="fn">produitsParMC</span>(mc);
+            request.<span class="fn">setAttribute</span>(<span class="str">"produits"</span>, prods);
+            request.<span class="fn">getRequestDispatcher</span>(<span class="str">"produits.jsp"</span>).<span class="fn">forward</span>(request, response);
+        }
+    }
+
+    <span class="ann">@Override</span>
+    <span class="kw">protected void</span> <span class="fn">doPost</span>(...) {
+        <span class="fn">doGet</span>(request, response); <span class="cmt">// Déléguer POST vers doGet</span>
+    }
+}</pre>
+  </div>
+
+  <h3 class="j2ee-h3">Référence des méthodes clés</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="j2ee">Code</th><th class="j2ee">Définition</th><th class="j2ee">Rôle</th></tr></thead>
+      <tbody>
+        <tr><td><code>@WebServlet("*.do")</code></td><td>Annotation de Mapping</td><td>Intercepte toutes les URLs finissant par <code>.do</code></td></tr>
+        <tr><td><code>extends HttpServlet</code></td><td>Héritage</td><td>Donne accès aux méthodes HTTP (doGet, doPost...)</td></tr>
+        <tr><td><code>init()</code></td><td>Cycle de vie</td><td>Exécuté une fois au démarrage → instancier le DAO</td></tr>
+        <tr><td><code>doGet() / doPost()</code></td><td>Méthodes de service</td><td>Appelées à chaque requête HTTP GET ou POST</td></tr>
+        <tr><td><code>request.getServletPath()</code></td><td>Analyse URL</td><td>Récupère l'action (<code>/chercher.do</code>)</td></tr>
+        <tr><td><code>request.getParameter()</code></td><td>Extraction donnée</td><td>Lit la valeur d'un champ <code>&lt;input name="..."&gt;</code></td></tr>
+        <tr><td><code>request.setAttribute()</code></td><td>Stockage Modèle</td><td>Place les données pour la JSP</td></tr>
+        <tr><td><code>RequestDispatcher.forward()</code></td><td>Transfert vers JSP</td><td>Passe la main à la Vue sans changer l'URL</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note purple">
+    <div class="note-icon">📝</div>
+    <div class="note-body">
+      <div class="note-title">Règle d'or de la Servlet</div>
+      <p>Il ne doit y avoir <strong>aucune ligne SQL</strong> dans la Servlet (rôle du DAO) et <strong>aucune ligne HTML</strong> (rôle de la JSP). La Servlet se contente de : recevoir la requête, décider quelle méthode du DAO appeler, et transmettre le résultat à la JSP.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="sep j2ee">
+
+<!-- ████████████████████████████████████████
+     J2EE CHAPITRE 7 — VUE JSP & JSTL
+████████████████████████████████████████ -->
+<div class="chapter" id="j2ee-ch7">
+  <div class="ch-header">
+    <div class="ch-num-wrap">
+      <span class="ch-num j2ee">PARTIE J7</span>
+      <span class="ch-emoji">🖼️</span>
+    </div>
+    <div class="ch-info">
+      <h2>La Vue — JSP &amp; JSTL</h2>
+      <p>JavaServer Pages avec la bibliothèque JSTL pour générer du HTML dynamique sans écrire de Java brut.</p>
+    </div>
+  </div>
+
+  <h3 class="j2ee-h3">JSP vs JSTL — Pourquoi éviter les Scriptlets ?</h3>
+  <div class="cards">
+    <div class="card j2ee-card">
+      <div class="card-top"><div class="card-icon" style="background:rgba(248,113,113,0.12)">❌</div><h4>Ancien style — Scriptlets</h4></div>
+      <div class="card-body">
+        <p>Écrire du Java dans du HTML avec <code>&lt;% ... %&gt;</code></p>
+        <p><strong>Problème :</strong> Code illisible, difficile à maintenir, dangereux pour les designers web.</p>
+      </div>
+    </div>
+    <div class="card j2ee-card">
+      <div class="card-top"><div class="card-icon" style="background:rgba(52,211,153,0.12)">✅</div><h4>Moderne — JSTL + EL</h4></div>
+      <div class="card-body">
+        <p>Balises HTML-like avec l'Expression Language <code>${...}</code></p>
+        <p><strong>Avantage :</strong> Lisible, maintenable, séparation propre entre Java et HTML.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="code-wrap">
+    <div class="code-bar">
+      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
+      <span class="code-lang j2ee">jsp</span>
+      <span class="code-filename">produits.jsp — Vue complète annotée</span>
+    </div>
+    <pre><span class="cmt">&lt;!-- Directive 1 : Configuration de la page --&gt;</span>
+&lt;<span class="tag">%@ page</span> <span class="attr">language</span>=<span class="str">"java"</span> <span class="attr">contentType</span>=<span class="str">"text/html; charset=UTF-8"</span> <span class="attr">pageEncoding</span>=<span class="str">"UTF-8"</span>%&gt;
+
+<span class="cmt">&lt;!-- Directive 2 : Importer la bibliothèque JSTL Core (prefix="c") --&gt;</span>
+&lt;<span class="tag">%@ taglib</span> <span class="attr">uri</span>=<span class="str">"http://java.sun.com/jsp/jstl/core"</span> <span class="attr">prefix</span>=<span class="str">"c"</span> %&gt;
+
+&lt;<span class="tag">html</span>&gt;
+&lt;<span class="tag">head</span>&gt;&lt;<span class="tag">title</span>&gt;Ma Boutique&lt;/<span class="tag">title</span>&gt;&lt;/<span class="tag">head</span>&gt;
+&lt;<span class="tag">body</span>&gt;
+
+  &lt;<span class="tag">h1</span>&gt;Liste des Produits&lt;/<span class="tag">h1</span>&gt;
+
+  <span class="cmt">&lt;!-- Formulaire : action="chercher.do" → appelle /chercher.do dans la Servlet --&gt;</span>
+  <span class="cmt">&lt;!--              name="motCle" → récupéré par request.getParameter("motCle") --&gt;</span>
+  &lt;<span class="tag">form</span> <span class="attr">action</span>=<span class="str">"chercher.do"</span> <span class="attr">method</span>=<span class="str">"get"</span>&gt;
+    Mot-clé : &lt;<span class="tag">input</span> <span class="attr">type</span>=<span class="str">"text"</span> <span class="attr">name</span>=<span class="str">"motCle"</span>&gt;
+    &lt;<span class="tag">button</span> <span class="attr">type</span>=<span class="str">"submit"</span>&gt;Rechercher&lt;/<span class="tag">button</span>&gt;
+  &lt;/<span class="tag">form</span>&gt;
+
+  &lt;<span class="tag">table</span> <span class="attr">border</span>=<span class="str">"1"</span>&gt;
+    &lt;<span class="tag">tr</span>&gt;&lt;<span class="tag">th</span>&gt;ID&lt;/<span class="tag">th</span>&gt;&lt;<span class="tag">th</span>&gt;Désignation&lt;/<span class="tag">th</span>&gt;&lt;<span class="tag">th</span>&gt;Prix&lt;/<span class="tag">th</span>&gt;&lt;/<span class="tag">tr</span>&gt;
+
+    <span class="cmt">&lt;!-- items="${produits}" = la liste stockée par request.setAttribute("produits", ...) --&gt;</span>
+    <span class="cmt">&lt;!-- var="p" = à chaque tour de boucle, "p" est un objet Produit              --&gt;</span>
+    &lt;<span class="ann">c:forEach</span> <span class="attr">items</span>=<span class="str">"${produits}"</span> <span class="attr">var</span>=<span class="str">"p"</span>&gt;
+      &lt;<span class="tag">tr</span>&gt;
+        &lt;<span class="tag">td</span>&gt;${p.id}&lt;/<span class="tag">td</span>&gt;           <span class="cmt">&lt;!-- appelle p.getId() --&gt;</span>
+        &lt;<span class="tag">td</span>&gt;${p.designation}&lt;/<span class="tag">td</span>&gt; <span class="cmt">&lt;!-- appelle p.getDesignation() --&gt;</span>
+        &lt;<span class="tag">td</span>&gt;${p.prix} €&lt;/<span class="tag">td</span>&gt;      <span class="cmt">&lt;!-- appelle p.getPrix() --&gt;</span>
+      &lt;/<span class="tag">tr</span>&gt;
+    &lt;/<span class="ann">c:forEach</span>&gt;
+
+  &lt;/<span class="tag">table</span>&gt;
+&lt;/<span class="tag">body</span>&gt;
+&lt;/<span class="tag">html</span>&gt;</pre>
+  </div>
+
+  <h3 class="j2ee-h3">Tableau des correspondances JSP ↔ Servlet</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="j2ee">Composant HTML/JSP</th><th class="j2ee">Valeur</th><th class="j2ee">Correspondance dans la Servlet</th></tr></thead>
+      <tbody>
+        <tr><td>URL de destination</td><td><code>action="chercher.do"</code></td><td><code>if (path.equals("/chercher.do"))</code></td></tr>
+        <tr><td>Contenu de la saisie</td><td><code>name="motCle"</code></td><td><code>request.getParameter("motCle")</code></td></tr>
+        <tr><td>Type d'envoi</td><td><code>method="get"</code></td><td><code>protected void doGet()</code></td></tr>
+        <tr><td>Accès aux données globales</td><td><code>${produits}</code></td><td><code>request.setAttribute("produits", ...)</code></td></tr>
+        <tr><td>Boucle sur liste</td><td><code>&lt;c:forEach items="${produits}"&gt;</code></td><td>Remplace la boucle <code>for</code> Java brut</td></tr>
+        <tr><td>Affichage d'une propriété</td><td><code>${p.prix}</code></td><td>Appelle <code>p.getPrix()</code> sur le JavaBean</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="j2ee-h3">Lancer et tester l'application</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num j2ee">1</div>
+      <div class="step-body"><strong>Démarrer le serveur :</strong> Clic droit sur le projet → Run As → Run on Server → Apache Tomcat v9.0</div>
+    </div>
+    <div class="step">
+      <div class="step-num j2ee">2</div>
+      <div class="step-body"><strong>Accéder à l'URL :</strong> <code>http://localhost:8080/Gestion_Produits/index.do</code></div>
+    </div>
+    <div class="step">
+      <div class="step-num j2ee">3</div>
+      <div class="step-body"><strong>Si liste vide :</strong> Vérifier la connexion MySQL (SingletonConnection) et les données insérées</div>
+    </div>
+    <div class="step">
+      <div class="step-num j2ee">4</div>
+      <div class="step-body"><strong>Si Erreur 404 :</strong> Vérifier <code>urlPatterns={"*.do"}</code> dans <code>@WebServlet</code></div>
+    </div>
+    <div class="step">
+      <div class="step-num j2ee">5</div>
+      <div class="step-body"><strong>Si JasperException :</strong> Vérifier que <code>jstl-1.2.jar</code> est dans <code>WEB-INF/lib</code> et dans le Build Path</div>
+    </div>
+  </div>
+
+  <div class="resume j2ee-resume">
+    <div class="resume-title j2ee">📌 Résumé — JSP & JSTL</div>
+    <ul>
+      <li>JSP = page HTML + code Java dynamique côté serveur</li>
+      <li><code>&lt;%@ taglib prefix="c" %&gt;</code> importe la bibliothèque JSTL Core</li>
+      <li><code>&lt;c:forEach items="${produits}" var="p"&gt;</code> = boucle sur la liste envoyée par la Servlet</li>
+      <li><code>${p.designation}</code> = Expression Language → appelle automatiquement <code>p.getDesignation()</code></li>
+      <li>La JSP ignore l'existence de MySQL ou du DAO — elle ne fait qu'afficher</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="sep j2ee">
+
+<!-- ████████████████████████████████████████
+     J2EE EXAM
+████████████████████████████████████████ -->
+<div class="exam-wrap" id="j2ee-exam">
+  <div class="exam-head j2ee-exam">
+    <h2>✏️ QCM J2EE — Prépare-toi à l'examen !</h2>
+    <p>Questions basées sur le cours J2EE — Architecture, DAO, Servlets et JSP</p>
+  </div>
+  <div class="exam-body">
+
+    <div class="exam-section-title j2ee">Partie A — Questions à Choix Multiple</div>
+
+    <div class="q-card">
+      <div class="q-num j2ee">Question J01</div>
+      <p class="q-text">Apache Tomcat est techniquement appelé :</p>
+      <ul class="opts">
+        <li class="opt" onclick="repond(this,false)">A) Un serveur de base de données</li>
+        <li class="opt" onclick="repond(this,false)">B) Un serveur FTP</li>
+        <li class="opt" onclick="repond(this,true)">C) Un Conteneur de Servlets (Web Container)</li>
+        <li class="opt" onclick="repond(this,false)">D) Un compilateur Java</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggle(this)">Voir l'explication</button>
+      <div class="answer-box">✅ <strong>Réponse : C</strong> — Tomcat est un <strong>Conteneur de Servlets</strong>. Il a 4 rôles : Réceptionniste HTTP (écoute sur le port 8080), Gestionnaire de vie (appelle init, doGet, destroy), Chef de chantier (multi-threading), et Bibliothécaire (sécurise WEB-INF, charge les .jar).</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num j2ee">Question J02</div>
+      <p class="q-text">Dans le patron DAO, pourquoi utilise-t-on un <code>PreparedStatement</code> avec des <code>?</code> plutôt que de construire la requête SQL avec des concaténations de chaînes ?</p>
+      <ul class="opts">
+        <li class="opt" onclick="repond(this,false)">A) Pour écrire moins de code Java</li>
+        <li class="opt" onclick="repond(this,true)">B) Pour se protéger contre les injections SQL</li>
+        <li class="opt" onclick="repond(this,false)">C) Car MySQL ne comprend pas la concaténation</li>
+        <li class="opt" onclick="repond(this,false)">D) Pour améliorer l'affichage des résultats</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggle(this)">Voir l'explication</button>
+      <div class="answer-box">✅ <strong>Réponse : B</strong> — Le <strong>PreparedStatement</strong> avec des <code>?</code> est une mesure de sécurité indispensable contre les <strong>Injections SQL</strong>. Si un utilisateur malveillant tape <code>' OR '1'='1</code> dans un champ, la concaténation directe rendrait la requête dangereuse. Les <code>?</code> traitent la valeur comme un simple paramètre, jamais comme du SQL exécutable.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num j2ee">Question J03</div>
+      <p class="q-text">Quelle méthode de la Servlet est appelée UNE SEULE FOIS au démarrage, et est idéale pour instancier le DAO ?</p>
+      <ul class="opts">
+        <li class="opt" onclick="repond(this,false)">A) <code>doGet()</code></li>
+        <li class="opt" onclick="repond(this,true)">B) <code>init()</code></li>
+        <li class="opt" onclick="repond(this,false)">C) <code>doPost()</code></li>
+        <li class="opt" onclick="repond(this,false)">D) <code>destroy()</code></li>
+      </ul>
+      <button class="reveal-btn" onclick="toggle(this)">Voir l'explication</button>
+      <div class="answer-box">✅ <strong>Réponse : B</strong> — La méthode <code>init()</code> fait partie du cycle de vie de la Servlet géré par Tomcat. Elle s'exécute exactement une fois lors du premier chargement de la Servlet. C'est l'endroit idéal pour instancier le DAO : <code>dao = new ProduitDaoImpl();</code>. <code>doGet()</code> et <code>doPost()</code> sont appelés à chaque requête. <code>destroy()</code> s'exécute à l'arrêt.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num j2ee">Question J04</div>
+      <p class="q-text">En JSP, que fait exactement <code>${p.designation}</code> ?</p>
+      <ul class="opts">
+        <li class="opt" onclick="repond(this,false)">A) Lit directement l'attribut privé <code>designation</code> de l'objet</li>
+        <li class="opt" onclick="repond(this,true)">B) Appelle automatiquement la méthode <code>p.getDesignation()</code></li>
+        <li class="opt" onclick="repond(this,false)">C) Exécute une requête SQL SELECT</li>
+        <li class="opt" onclick="repond(this,false)">D) Affiche le nom de la classe Java</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggle(this)">Voir l'explication</button>
+      <div class="answer-box">✅ <strong>Réponse : B</strong> — L'<strong>Expression Language (EL)</strong> de JSP appelle automatiquement le <strong>Getter</strong> correspondant. <code>${p.designation}</code> = <code>p.getDesignation()</code>. C'est pourquoi les JavaBeans doivent avoir des Getters — sans eux, la JSP ne peut pas lire les données et génère une erreur.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num j2ee">Question J05</div>
+      <p class="q-text">Quelle est la différence entre <code>executeUpdate()</code> et <code>executeQuery()</code> en JDBC ?</p>
+      <ul class="opts">
+        <li class="opt" onclick="repond(this,false)">A) Il n'y a aucune différence, les deux font la même chose</li>
+        <li class="opt" onclick="repond(this,false)">B) <code>executeUpdate()</code> est pour les SELECT, <code>executeQuery()</code> pour les INSERT</li>
+        <li class="opt" onclick="repond(this,true)">C) <code>executeUpdate()</code> pour les modifications (INSERT/UPDATE/DELETE), <code>executeQuery()</code> pour les lectures (SELECT)</li>
+        <li class="opt" onclick="repond(this,false)">D) Les deux retournent un ResultSet</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggle(this)">Voir l'explication</button>
+      <div class="answer-box">✅ <strong>Réponse : C</strong> — <code>executeUpdate()</code> est utilisé pour les requêtes qui <strong>modifient</strong> la base (INSERT, UPDATE, DELETE) et retourne un <code>int</code> (nombre de lignes affectées). <code>executeQuery()</code> est utilisé pour les requêtes de <strong>lecture</strong> (SELECT) et retourne un <code>ResultSet</code> contenant les lignes résultantes.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num j2ee">Question J06</div>
+      <p class="q-text">Quel est le rôle de <code>request.setAttribute("produits", prods)</code> dans la Servlet ?</p>
+      <ul class="opts">
+        <li class="opt" onclick="repond(this,false)">A) Envoie les données directement au navigateur client</li>
+        <li class="opt" onclick="repond(this,false)">B) Sauvegarde les données dans la base MySQL</li>
+        <li class="opt" onclick="repond(this,true)">C) Stocke la liste dans l'objet request pour que la JSP puisse y accéder via <code>${produits}</code></li>
+        <li class="opt" onclick="repond(this,false)">D) Crée une session permanente pour l'utilisateur</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggle(this)">Voir l'explication</button>
+      <div class="answer-box">✅ <strong>Réponse : C</strong> — C'est le <strong>cœur du MVC</strong>. La Servlet stocke le résultat du DAO dans un "coffre" nommé <code>"produits"</code> dans l'objet <code>request</code>. Ensuite, via <code>forward()</code>, la JSP reçoit cet objet et peut accéder à la liste avec <code>${produits}</code> dans une boucle <code>&lt;c:forEach&gt;</code>.</div>
+    </div>
+
+    <div class="exam-section-title j2ee" style="margin-top:32px">Partie B — Questions ouvertes</div>
+
+    <div class="q-card">
+      <div class="q-num j2ee">Question J07 — Trace d'exécution</div>
+      <p class="q-text">Décris étape par étape ce qui se passe quand l'utilisateur tape <code>localhost:8080/Gestion_Produits/chercher.do?motCle=ordinateur</code> dans son navigateur.</p>
+      <button class="reveal-btn" onclick="toggle(this)">Voir la réponse modèle</button>
+      <div class="answer-box">
+        <strong>Étapes complètes :</strong><br>
+        1. Le navigateur envoie une requête HTTP GET à Tomcat avec l'URL <code>/chercher.do?motCle=ordinateur</code><br>
+        2. Tomcat voit l'URL se terminant par <code>.do</code> → appelle la <code>ControllerServlet</code><br>
+        3. Tomcat appelle <code>doGet(request, response)</code> avec les objets de requête<br>
+        4. La Servlet récupère le chemin : <code>path = "/chercher.do"</code><br>
+        5. Le <code>else if (path.equals("/chercher.do"))</code> s'exécute<br>
+        6. <code>request.getParameter("motCle")</code> retourne <code>"ordinateur"</code><br>
+        7. <code>dao.produitsParMC("ordinateur")</code> est appelé → interroge MySQL via JDBC<br>
+        8. JDBC exécute : <code>SELECT * FROM PRODUITS WHERE DESIGNATION LIKE '%ordinateur%'</code><br>
+        9. Le DAO retourne une liste d'objets <code>Produit</code><br>
+        10. <code>request.setAttribute("produits", prods)</code> stocke la liste<br>
+        11. <code>forward("produits.jsp")</code> transfère à la JSP<br>
+        12. La JSP boucle sur <code>${produits}</code> et génère le HTML final<br>
+        13. Tomcat envoie le HTML au navigateur
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num j2ee">Question J08 — Exercice de codage</div>
+      <p class="q-text">Écris la méthode <code>deleteProduit(Long id)</code> dans <code>ProduitDaoImpl</code> qui supprime un produit de MySQL par son ID.</p>
+      <button class="reveal-btn" onclick="toggle(this)">Voir la solution</button>
+      <div class="answer-box">
+<pre>@Override
+public void deleteProduit(Long id) {
+    Connection conn = SingletonConnection.getConnection();
+    try {
+        // PreparedStatement avec ? pour sécurité
+        PreparedStatement ps = conn.prepareStatement(
+            "DELETE FROM PRODUITS WHERE ID = ?"
+        );
+        // Mapping : Long id → premier ?
+        ps.setLong(1, id);
+
+        // executeUpdate() car c'est une modification (DELETE)
+        int lignesAffectees = ps.executeUpdate();
+        System.out.println(lignesAffectees + " produit(s) supprimé(s)");
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+// Dans la Servlet, ajouter :
+// else if (path.equals("/delete.do")) {
+//     Long id = Long.parseLong(request.getParameter("id"));
+//     dao.deleteProduit(id);
+//     response.sendRedirect("index.do"); // Redirection après suppression
+// }</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ████████████████████████████████████████
+     MODULE 2 — SPRING BOOT BANNER
+████████████████████████████████████████ -->
+<div class="module-banner spring">
+  <div class="module-icon">🌱</div>
+  <div class="module-info">
+    <h2>Module 2 — Architecture Microservices avec Spring Boot</h2>
+    <p>Du monolithe aux microservices — Spring Boot, JPA, REST APIs et architecture 3 couches.</p>
+  </div>
+  <span class="module-badge spring">Spring Boot 3.x · Java 17</span>
 </div>
 
 
@@ -114,50 +1122,19 @@
     </div>
   </div>
 
-  <h3>Organisation en équipes (couches)</h3>
-  <p>Dans un monolithe, les équipes sont organisées par <strong>couche technique</strong> et non par fonctionnalité. Cela crée une forte interdépendance :</p>
-  <div class="note info">
-    <div class="note-icon">👥</div>
-    <div class="note-body">
-      <div class="note-title">Spécialisation par couche</div>
-      <p>L'équipe Front-End dépend du Back-End pour les données. Le Back-End dépend de la base de données. Si une équipe est bloquée, tout le monde attend. Dans un monolithe, <strong>tout est étroitement intégré</strong>.</p>
-    </div>
-  </div>
-
-  <h3>✅ Les avantages du Monolithe</h3>
+  <h3>✅ Avantages &amp; ❌ Limites du Monolithe</h3>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Avantage</th><th>Pourquoi c'est bien ?</th><th>Exemple concret</th></tr></thead>
+      <thead><tr><th>Caractéristique</th><th>Avantage/Limite</th><th>Détail</th></tr></thead>
       <tbody>
-        <tr><td><strong>Simplicité au début</strong></td><td>Un seul projet à créer, configurer et lancer</td><td>Un étudiant peut créer une app complète en une journée</td></tr>
-        <tr><td><strong>Déploiement facile</strong></td><td>Un seul fichier (.jar ou .war) à copier sur le serveur</td><td>Comme copier un seul fichier sur une clé USB</td></tr>
-        <tr><td><strong>Tests simplifiés</strong></td><td>Tout est au même endroit, les tests couvrent tout</td><td>Un seul test peut vérifier Feature A ET Feature B</td></tr>
-        <tr><td><strong>Performances internes</strong></td><td>Les appels entre features se font en RAM — ultra rapide</td><td>Feature A appelle Feature B en quelques nanosecondes</td></tr>
+        <tr><td><strong>Démarrage</strong></td><td class="ok">✅ Simple au début</td><td>Un seul projet, déploiement facile (.jar ou .war)</td></tr>
+        <tr><td><strong>Tests</strong></td><td class="ok">✅ Simplifiés</td><td>Tout est au même endroit, les tests couvrent tout</td></tr>
+        <tr><td><strong>Mise à l'échelle</strong></td><td class="ko">❌ Difficile</td><td>Dupliquer tout le monolithe même si une seule feature a besoin de scaling</td></tr>
+        <tr><td><strong>Maintenance</strong></td><td class="ko">❌ Code Spaghetti</td><td>Modifier Feature A peut accidentellement casser Feature B</td></tr>
+        <tr><td><strong>Déploiement</strong></td><td class="ko">❌ Risqué</td><td>Une ligne modifiée → redémarrage TOTAL → interruption de service</td></tr>
+        <tr><td><strong>Technologie</strong></td><td class="ko">❌ Prison</td><td>Coincé avec un seul langage pour tout le projet</td></tr>
       </tbody>
     </table>
-  </div>
-
-  <h3>❌ Les limites du Monolithe</h3>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Problème</th><th>Ce qui se passe concrètement</th></tr></thead>
-      <tbody>
-        <tr><td><strong class="ko">Mise à l'échelle difficile</strong></td><td class="ko">Si la Feature A reçoit beaucoup de trafic, tu dois dupliquer <em>tout</em> le monolithe, même Features B et C qui n'en ont pas besoin. Énorme gaspillage de ressources.</td></tr>
-        <tr><td><strong class="ko">Code Spaghetti</strong></td><td class="ko">Avec le temps, le code devient gigantesque et emmêlé. Modifier Feature A peut accidentellement casser Feature B.</td></tr>
-        <tr><td><strong class="ko">Déploiements risqués</strong></td><td class="ko">Changer UNE ligne de code dans Feature C oblige à redémarrer TOUTE l'application → interruption de service pour tout le monde.</td></tr>
-        <tr><td><strong class="ko">Prison technologique</strong></td><td class="ko">Tu es coincé avec un seul langage pour tout. Impossible d'écrire Feature A en Java et Feature B en Python.</td></tr>
-        <tr><td><strong class="ko">Cycles lents</strong></td><td class="ko">Plus la base de code grandit, plus les déploiements deviennent longs et risqués.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>📖 L'exemple réel d'Amazon</h3>
-  <div class="note warn">
-    <div class="note-icon">🛒</div>
-    <div class="note-body">
-      <div class="note-title">Amazon — de monolithe à microservices</div>
-      <p>Amazon était au départ une seule application monolithique. Résultat : intégration difficile, des <strong>semaines entières</strong> pour fusionner les modifications de code, des conflits permanents entre développeurs. La solution : adopter une architecture microservices → chaque service a sa propre responsabilité, accessible via une API web, les équipes travaillent indépendamment.</p>
-    </div>
   </div>
 
   <div class="resume">
@@ -166,7 +1143,6 @@
       <li>Un monolithe = <strong>tout en un seul bloc déployable</strong></li>
       <li>Idéal pour les petits projets, catastrophique pour les grands systèmes</li>
       <li>3 problèmes majeurs : difficile à scaler, difficile à maintenir, dangereux à déployer</li>
-      <li>Les équipes sont interdépendantes → ralentissement général</li>
       <li>Amazon, Netflix, Uber... tous sont passés du monolithe aux microservices</li>
     </ul>
   </div>
@@ -195,60 +1171,7 @@
     <p>Une <strong>architecture microservices</strong> est une approche qui consiste à découper une application en une suite de <strong>petits services indépendants</strong>, chacun exécutant son propre processus, avec sa propre base de données, et communiquant via des mécanismes légers (généralement HTTP/REST).</p>
   </div>
 
-  <p>Au lieu d'une seule grande salle (monolithe), imagine maintenant des <strong>appartements séparés</strong>. Chaque appartement (service) a sa propre entrée, ses propres meubles, ses propres règles. Si un appartement prend feu, les autres ne sont pas affectés.</p>
-
-  <h3>Anatomie d'un Microservice</h3>
-  <p>Chaque microservice est une unité <strong>totalement autonome</strong>. Il possède :</p>
-
-  <div class="cards">
-    <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:rgba(96,165,250,0.12)">🧠</div>
-        <h4>Sa propre logique métier</h4>
-      </div>
-      <div class="card-body">
-        <p>Il ne gère qu'un seul domaine. Ex : le service Produits ne fait que gérer les produits. Jamais les commandes.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:rgba(52,211,153,0.12)">📚</div>
-        <h4>Ses propres librairies</h4>
-      </div>
-      <div class="card-body">
-        <p>Chaque service peut utiliser les dépendances qui lui conviennent le mieux, indépendamment des autres services.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:rgba(251,146,60,0.12)">🌐</div>
-        <h4>Son propre serveur web</h4>
-      </div>
-      <div class="card-body">
-        <p>Un serveur Tomcat, Jetty ou Undertow intégré. Chaque service tourne sur un port différent.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:rgba(192,132,252,0.12)">🗄️</div>
-        <h4>Sa propre base de données ⭐</h4>
-      </div>
-      <div class="card-body">
-        <p>C'est <strong>la règle d'or</strong>. Le service Produits a sa BDD. Le service Commandes a la sienne. <em>Jamais de partage direct de BDD.</em></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="note danger">
-    <div class="note-icon">⚠️</div>
-    <div class="note-body">
-      <div class="note-title">⭐ Règle d'Or — Database per Service</div>
-      <p>Chaque microservice doit posséder sa propre base de données privée. Service A ne peut JAMAIS accéder directement à la base de données de Service B. Ils communiquent uniquement via leurs APIs. C'est ce qui garantit leur vraie indépendance.</p>
-    </div>
-  </div>
-
   <h3>Les 3 principes fondamentaux</h3>
-
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
@@ -262,16 +1185,14 @@
       <div class="step-num">2</div>
       <div class="step-body">
         <strong>Cohésion Forte (High Cohesion)</strong><br>
-        Tout le code lié à un sujet reste ensemble. La logique de facturation est dans le Service Facturation, pas éparpillée partout.<br>
-        <em>📚 Analogie :</em> Tous les ingrédients d'une pizza sont dans la section pizza du livre de recettes.
+        Tout le code lié à un sujet reste ensemble. La logique de facturation est dans le Service Facturation, pas éparpillée partout.
       </div>
     </div>
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-body">
         <strong>Indépendance de Déploiement</strong><br>
-        Je peux mettre à jour le Service A sans éteindre ou affecter le Service B. Chaque service a son propre cycle de déploiement.<br>
-        <em>🏠 Analogie :</em> Rénover un appartement n'oblige pas les voisins à déménager.
+        Je peux mettre à jour le Service A sans éteindre ou affecter le Service B. Chaque service a son propre cycle de déploiement.
       </div>
     </div>
   </div>
@@ -282,23 +1203,20 @@
       <thead><tr><th>Caractéristique</th><th>Monolithe</th><th>Microservices</th></tr></thead>
       <tbody>
         <tr><td><strong>Simplicité initiale</strong></td><td class="ok">Simple à démarrer</td><td class="ko">Infrastructure complexe dès le début</td></tr>
-        <tr><td><strong>Langage de programmation</strong></td><td class="ko">Un seul langage pour tout</td><td class="ok">Chaque service peut avoir son propre langage (Polyglotte)</td></tr>
+        <tr><td><strong>Langage de programmation</strong></td><td class="ko">Un seul langage pour tout</td><td class="ok">Polyglotte — chaque service peut avoir son propre langage</td></tr>
         <tr><td><strong>Mise à l'échelle</strong></td><td class="ko">Verticale : acheter un serveur plus puissant</td><td class="ok">Horizontale : dupliquer uniquement le service qui en a besoin</td></tr>
         <tr><td><strong>En cas de panne</strong></td><td class="ko">Une boucle infinie plante tout le serveur</td><td class="ok">La panne est isolée à un seul service</td></tr>
         <tr><td><strong>Déploiement</strong></td><td class="ko">Redémarrage complet pour chaque modification</td><td class="ok">Déploiement indépendant service par service</td></tr>
-        <tr><td><strong>Organisation des équipes</strong></td><td class="ko">Équipes interdépendantes, coordination difficile</td><td class="ok">Chaque équipe possède son service de bout en bout</td></tr>
         <tr><td><strong>Base de données</strong></td><td class="ko">Une seule base partagée par tout le monde</td><td class="ok">Une base de données par service</td></tr>
-        <tr><td><strong>Tests</strong></td><td class="ok">Tests de bout en bout faciles</td><td class="ko">Tests d'intégration plus complexes</td></tr>
       </tbody>
     </table>
   </div>
 
-  <h3>🕷️ Le Piège : Le "Monolithe Distribué"</h3>
   <div class="note danger">
-    <div class="note-icon">🕸️</div>
+    <div class="note-icon">⚠️</div>
     <div class="note-body">
-      <div class="note-title">Attention — Ne tombe pas dans ce piège !</div>
-      <p>Si Service A appelle toujours Service B, qui appelle toujours Service C, et que C tombe en panne → <strong>tout tombe en panne</strong>. Tu as créé un système complexe et lent, sans gagner en robustesse. C'est le "Monolithe Distribué". Règle : <strong>minimiser les appels synchrones entre services</strong>.</p>
+      <div class="note-title">⭐ Règle d'Or — Database per Service</div>
+      <p>Chaque microservice doit posséder sa propre base de données privée. Service A ne peut JAMAIS accéder directement à la base de données de Service B. Ils communiquent uniquement via leurs APIs.</p>
     </div>
   </div>
 
@@ -308,7 +1226,6 @@
       <li>Microservices = un ensemble de petits services autonomes et indépendants</li>
       <li>Règle d'or : chaque service a SA PROPRE base de données — jamais partagée</li>
       <li>3 principes : <strong>Couplage faible</strong>, <strong>Cohésion forte</strong>, <strong>Déploiement indépendant</strong></li>
-      <li>Idéal pour les grandes applications et les grandes équipes</li>
       <li>Évite le "Monolithe Distribué" — ne chaîne pas les services de façon synchrone</li>
     </ul>
   </div>
@@ -331,144 +1248,47 @@
     </div>
   </div>
 
-  <h3>C'est quoi Spring Boot ?</h3>
-  <div class="def">
-    <div class="def-label">📖 Définition</div>
-    <p><strong>Spring Boot</strong> est un framework Java qui facilite la création d'applications Spring. Il produit une application packagée dans un <strong>fichier JAR autonome et exécutable</strong>, avec un serveur web (Tomcat) déjà intégré à l'intérieur — plus besoin d'installer un serveur séparément.</p>
-  </div>
-
-  <h3>😩 Le problème avant Spring Boot</h3>
-  <p>Avec l'ancien Spring ou Java EE, afficher un simple "Hello World" dans un navigateur nécessitait :</p>
-  <ul>
-    <li>Installer manuellement un serveur d'application (Tomcat, Glassfish)</li>
-    <li>Écrire et maintenir des dizaines de fichiers XML (<code>web.xml</code>, <code>persistence.xml</code>...)</li>
-    <li>Passer des <strong>heures, voire des jours</strong> à faire de la "plomberie" avant d'écrire la moindre logique</li>
-    <li>Les erreurs XML ne se détectaient qu'au lancement — debugging cauchemardesque</li>
-  </ul>
-
-  <h3>✨ Les 3 promesses de Spring Boot</h3>
-
+  <h3>Les 3 promesses de Spring Boot</h3>
   <div class="cards">
     <div class="card">
       <div class="card-top">
         <div class="card-icon" style="background:rgba(96,165,250,0.12)">⚙️</div>
-        <h4>Promesse 1 : L'Auto-Configuration</h4>
+        <h4>1. L'Auto-Configuration</h4>
       </div>
       <div class="card-body">
-        <p><strong>Ce que c'est :</strong> Spring Boot <em>détecte automatiquement</em> les librairies présentes et les configure pour toi.</p>
-        <p><strong>Comment ça marche :</strong> Tu ajoutes la librairie H2 dans ton projet → Spring Boot crée automatiquement une connexion DataSource. Zéro ligne de configuration !</p>
-        <p><strong>Annotation clé :</strong> <code>@EnableAutoConfiguration</code> — elle parcourt le classpath et dit "Je vois H2, l'utilisateur veut probablement une base de données, je la configure tout seul."</p>
-        <p><strong>Règle de priorité :</strong> Ta propre configuration écrase toujours celle de Spring Boot.</p>
+        <p>Spring Boot <em>détecte automatiquement</em> les librairies présentes et les configure pour toi. Tu ajoutes H2 → Spring crée automatiquement une DataSource. Zéro configuration !</p>
       </div>
     </div>
     <div class="card">
       <div class="card-top">
         <div class="card-icon" style="background:rgba(52,211,153,0.12)">📦</div>
-        <h4>Promesse 2 : Application Autonome</h4>
+        <h4>2. Application Autonome (Fat JAR)</h4>
       </div>
       <div class="card-body">
-        <p><strong>Avant :</strong> Tu générais un fichier <code>.war</code> et tu le "déposais" dans un serveur Tomcat déjà installé. L'application allait vers le serveur.</p>
-        <p><strong>Avec Spring Boot :</strong> Le serveur vient dans l'application ! Tout est emballé dans un seul <strong>Fat JAR</strong> : ton code + toutes les dépendances + Tomcat intégré.</p>
-        <p>Pour lancer ton application entière : <code>java -jar monapp.jar</code></p>
+        <p>Le serveur Tomcat vient <em>dans</em> l'application. Tout emballé dans un Fat JAR. Pour lancer : <code>java -jar monapp.jar</code></p>
       </div>
     </div>
     <div class="card">
       <div class="card-top">
         <div class="card-icon" style="background:rgba(192,132,252,0.12)">🎒</div>
-        <h4>Promesse 3 : Les Starters</h4>
+        <h4>3. Les Starters</h4>
       </div>
       <div class="card-body">
-        <p>Au lieu d'ajouter 30 librairies individuellement, Spring Boot propose des <strong>Starters</strong> — des kits pré-emballés par fonctionnalité.</p>
-        <p>1 ligne dans <code>pom.xml</code> → ~30 librairies compatibles installées automatiquement.</p>
+        <p>1 ligne dans <code>pom.xml</code> → ~30 librairies compatibles installées automatiquement. <code>spring-boot-starter-web</code> = REST + MVC + Tomcat + Jackson.</p>
       </div>
     </div>
   </div>
 
-  <h3>📁 Le fichier pom.xml — La carte d'identité du projet</h3>
-  <p>Le <code>pom.xml</code> (Project Object Model) est le fichier de configuration Maven à la racine de ton projet. C'est à la fois le <strong>certificat de naissance</strong> de ton projet et sa <strong>liste de courses</strong>.</p>
-
-  <div class="code-wrap">
-    <div class="code-bar">
-      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
-      <span class="code-lang">xml</span>
-      <span class="code-filename">pom.xml — Structure complète annotée</span>
-    </div>
-    <pre><span class="cmt">&lt;!-- ① IDENTITÉ du projet (le GAV : GroupId, ArtifactId, Version) --&gt;</span>
-&lt;<span class="tag">groupId</span>&gt;com.ecommerce&lt;/<span class="tag">groupId</span>&gt;         <span class="cmt">&lt;!-- Nom de ton organisation (domaine inversé) --&gt;</span>
-&lt;<span class="tag">artifactId</span>&gt;microcommerce&lt;/<span class="tag">artifactId</span>&gt;   <span class="cmt">&lt;!-- Nom du projet / du fichier JAR produit --&gt;</span>
-&lt;<span class="tag">version</span>&gt;0.0.1-SNAPSHOT&lt;/<span class="tag">version</span>&gt;       <span class="cmt">&lt;!-- Version actuelle (SNAPSHOT = en développement) --&gt;</span>
-
-<span class="cmt">&lt;!-- ② HÉRITAGE — Le "DNA" Spring Boot --&gt;</span>
-<span class="cmt">&lt;!-- Ton projet hérite de spring-boot-starter-parent.           --&gt;</span>
-<span class="cmt">&lt;!-- Avantage : il gère automatiquement les versions de TOUTES  --&gt;</span>
-<span class="cmt">&lt;!-- les librairies pour éviter les conflits.                   --&gt;</span>
-&lt;<span class="tag">parent</span>&gt;
-  &lt;<span class="tag">groupId</span>&gt;org.springframework.boot&lt;/<span class="tag">groupId</span>&gt;
-  &lt;<span class="tag">artifactId</span>&gt;spring-boot-starter-parent&lt;/<span class="tag">artifactId</span>&gt;
-  &lt;<span class="tag">version</span>&gt;3.2.0&lt;/<span class="tag">version</span>&gt;
-&lt;/<span class="tag">parent</span>&gt;
-
-<span class="cmt">&lt;!-- ③ DÉPENDANCES — Les librairies nécessaires --&gt;</span>
-&lt;<span class="tag">dependencies</span>&gt;
-
-  <span class="cmt">&lt;!-- 1 ligne = ~30 librairies : Tomcat + Jackson + Spring MVC --&gt;</span>
-  &lt;<span class="tag">dependency</span>&gt;
-    &lt;<span class="tag">groupId</span>&gt;org.springframework.boot&lt;/<span class="tag">groupId</span>&gt;
-    &lt;<span class="tag">artifactId</span>&gt;spring-boot-starter-web&lt;/<span class="tag">artifactId</span>&gt;
-    <span class="cmt">&lt;!-- Pas besoin de mettre une version : le Parent gère ça --&gt;</span>
-  &lt;/<span class="tag">dependency</span>&gt;
-
-&lt;/<span class="tag">dependencies</span>&gt;
-
-<span class="cmt">&lt;!-- ④ PLUGIN — L'outil qui crée le Fat JAR --&gt;</span>
-&lt;<span class="tag">build</span>&gt;
-  &lt;<span class="tag">plugins</span>&gt;
-    &lt;<span class="tag">plugin</span>&gt;
-      &lt;<span class="tag">groupId</span>&gt;org.springframework.boot&lt;/<span class="tag">groupId</span>&gt;
-      &lt;<span class="tag">artifactId</span>&gt;spring-boot-maven-plugin&lt;/<span class="tag">artifactId</span>&gt;
-      <span class="cmt">&lt;!-- Ce plugin emballe TOUT (code + dépendances + Tomcat) --&gt;</span>
-      <span class="cmt">&lt;!-- dans un seul fichier JAR exécutable.                  --&gt;</span>
-      <span class="cmt">&lt;!-- Il permet aussi : mvn spring-boot:run               --&gt;</span>
-    &lt;/<span class="tag">plugin</span>&gt;
-  &lt;/<span class="tag">plugins</span>&gt;
-&lt;/<span class="tag">build</span>&gt;</pre>
-  </div>
-
-  <h3>🎯 Les Starters essentiels à connaître</h3>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Nom du Starter</th><th>Ce qu'il installe</th><th>Quand l'utiliser</th></tr></thead>
-      <tbody>
-        <tr><td><code>spring-boot-starter-web</code></td><td>REST, Spring MVC, Tomcat intégré, Jackson</td><td>Pour créer des APIs REST (notre cas !)</td></tr>
-        <tr><td><code>spring-boot-starter-data-jpa</code></td><td>Hibernate, JPA, connexion JDBC</td><td>Pour communiquer avec une base de données SQL</td></tr>
-        <tr><td><code>spring-boot-starter-test</code></td><td>JUnit, Mockito, Spring Test</td><td>Pour écrire des tests unitaires et d'intégration</td></tr>
-        <tr><td><code>spring-boot-starter-validation</code></td><td>Hibernate Validator, Jakarta Validation</td><td>Pour valider les données entrantes (@Size, @Min...)</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>🔑 L'annotation @SpringBootApplication — Tout en un</h3>
-  <p>C'est l'annotation la plus importante de tout le projet. Elle en cache en réalité <strong>trois autres</strong> :</p>
-
+  <h3>🔑 L'annotation @SpringBootApplication</h3>
   <div class="code-wrap">
     <div class="code-bar">
       <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
       <span class="code-lang">java</span>
       <span class="code-filename">MicrocommerceApplication.java</span>
     </div>
-    <pre><span class="ann">@SpringBootApplication</span>  <span class="cmt">// = les 3 annotations ci-dessous combinées</span>
-<span class="cmt">// ┌─ @Configuration         → Cette classe peut définir des Beans (objets de config)</span>
-<span class="cmt">// ├─ @EnableAutoConfiguration → Auto-configure les librairies détectées</span>
-<span class="cmt">// └─ @ComponentScan         → Scanne les packages pour trouver les composants Spring</span>
-
+    <pre><span class="ann">@SpringBootApplication</span>  <span class="cmt">// = @Configuration + @EnableAutoConfiguration + @ComponentScan</span>
 <span class="kw">public class</span> <span class="cls">MicrocommerceApplication</span> {
-
     <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cls">String</span>[] args) {
-
-        <span class="cmt">// Cette UNIQUE ligne démarre TOUT le serveur web !</span>
-        <span class="cmt">// - Lance le serveur Tomcat intégré</span>
-        <span class="cmt">// - Parcourt les annotations dans tous les packages</span>
-        <span class="cmt">// - Configure automatiquement les dépendances détectées</span>
         SpringApplication.<span class="fn">run</span>(<span class="cls">MicrocommerceApplication</span>.<span class="kw">class</span>, args);
     }
 }</pre>
@@ -477,20 +1297,18 @@
   <div class="note info">
     <div class="note-icon">💡</div>
     <div class="note-body">
-      <div class="note-title">Ce que Spring Boot inclut automatiquement dans spring-boot-starter-web</div>
-      <p><strong>Jackson</strong> : convertit les objets Java ↔ JSON | <strong>Tomcat</strong> : serveur web intégré | <strong>Hibernate Validator</strong> : validation des données | <strong>Logback</strong> : gestion des logs | <strong>Spring MVC</strong> : gestion des requêtes HTTP</p>
+      <div class="note-title">J2EE vs Spring Boot — Évolution naturelle</div>
+      <p>Spring Boot est l'évolution naturelle de J2EE. Dans le Module 1, tu déployais un <code>.war</code> sur Tomcat externe. Avec Spring Boot, Tomcat est <strong>intégré dans le JAR</strong>. La couche DAO JDBC devient <strong>Spring Data JPA</strong>. La Servlet devient un <strong>@RestController</strong>. Les JSP disparaissent au profit des réponses <strong>JSON</strong>.</p>
     </div>
   </div>
 
   <div class="resume">
     <div class="resume-title">📌 Résumé — Chapitre 3</div>
     <ul>
-      <li>Spring Boot ≠ Spring Framework. C'est un outil de <strong>productivité</strong> par-dessus Spring.</li>
-      <li>L'Auto-configuration devine tes besoins selon les librairies présentes</li>
+      <li>Spring Boot = outil de productivité par-dessus Spring Framework</li>
       <li>Fat JAR = ton code + Tomcat + toutes les librairies dans UN seul fichier</li>
       <li>Les Starters = kits de dépendances compatibles pour chaque fonctionnalité</li>
       <li><code>@SpringBootApplication</code> = le point d'entrée (3 annotations en 1)</li>
-      <li><code>pom.xml</code> = identité du projet + liste de dépendances</li>
     </ul>
   </div>
 </div>
@@ -507,34 +1325,19 @@
       <span class="ch-emoji">🚀</span>
     </div>
     <div class="ch-info">
-      <h2>Créer son Premier Projet</h2>
+      <h2>Créer son Premier Projet Spring Boot</h2>
       <p>De Spring Initializr jusqu'à la structure du projet et son premier lancement.</p>
     </div>
   </div>
 
-  <h3>🛠️ Prérequis techniques</h3>
+  <h3>⚙️ Initialiser avec Spring Initializr (start.spring.io)</h3>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Outil</th><th>Version</th><th>Rôle</th><th>Vérification</th></tr></thead>
+      <thead><tr><th>Champ</th><th>Valeur</th><th>Explication</th></tr></thead>
       <tbody>
-        <tr><td><strong>JDK (Java)</strong></td><td>17 ou 21 (LTS)</td><td>Langage de programmation principal</td><td><code>java -version</code></td></tr>
-        <tr><td><strong>IntelliJ IDEA</strong></td><td>Community (gratuit)</td><td>IDE standard pour Spring Boot</td><td>—</td></tr>
-        <tr><td><strong>Postman</strong></td><td>Dernière version</td><td>Tester les APIs REST sans navigateur</td><td>—</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>⚙️ Initialiser avec Spring Initializr</h3>
-  <p>Va sur <strong>start.spring.io</strong> — c'est comme commander une "salade à composer" au restaurant. Tu choisis exactement ce dont tu as besoin.</p>
-
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Champ</th><th>Valeur à saisir</th><th>Explication</th></tr></thead>
-      <tbody>
-        <tr><td>Project</td><td>Maven</td><td>Gestionnaire de dépendances et de construction</td></tr>
-        <tr><td>Language</td><td>Java</td><td>Notre langage de programmation</td></tr>
-        <tr><td>Spring Boot</td><td>Dernière stable (ex: 3.x.x)</td><td>Sans "SNAPSHOT" = version stable</td></tr>
-        <tr><td>Group</td><td><code>com.ecommerce</code></td><td>Nom de ton organisation (domaine inversé)</td></tr>
+        <tr><td>Project</td><td>Maven</td><td>Gestionnaire de dépendances</td></tr>
+        <tr><td>Language</td><td>Java</td><td>Notre langage</td></tr>
+        <tr><td>Group</td><td><code>com.ecommerce</code></td><td>Nom de l'organisation (domaine inversé)</td></tr>
         <tr><td>Artifact</td><td><code>microcommerce</code></td><td>Nom du projet / du fichier JAR</td></tr>
         <tr><td>Packaging</td><td>JAR</td><td>Déploiement autonome Cloud-native</td></tr>
         <tr><td>Java</td><td>17 ou 21</td><td>Version LTS recommandée</td></tr>
@@ -548,49 +1351,19 @@
     <div class="code-bar">
       <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
       <span class="code-lang">arborescence</span>
-      <span class="code-filename">Structure finale du projet</span>
     </div>
     <pre>src/
-├── main/
-│   ├── java/
-│   │   └── com.ecommerce.microcommerce/
-│   │       ├── <span class="ann">web/</span>                               <span class="cmt">← Couche HTTP / réseau</span>
-│   │       │   └── <span class="ann">controller/</span>
-│   │       │       └── <span class="cls">ProductController.java</span>      <span class="cmt">← Reçoit les requêtes HTTP</span>
-│   │       ├── <span class="ann">model/</span>
-│   │       │   └── <span class="cls">Product.java</span>                   <span class="cmt">← Structure des données</span>
-│   │       ├── <span class="ann">dao/</span>
-│   │       │   ├── <span class="cls">ProductDao.java</span>               <span class="cmt">← Interface (contrat)</span>
-│   │       │   └── <span class="cls">ProductDaoImpl.java</span>           <span class="cmt">← Implémentation (données)</span>
-│   │       └── <span class="cls">MicrocommerceApplication.java</span>      <span class="cmt">← Point d'entrée principal</span>
-│   └── resources/
-│       ├── application.properties                 <span class="cmt">← Configuration générale</span>
-│       ├── data.sql                               <span class="cmt">← Données initiales BDD</span>
-│       └── schema.sql                             <span class="cmt">← Structure de la table BDD</span>
-└── test/                                          <span class="cmt">← Tests automatisés</span></pre>
-  </div>
-
-  <h3>🔧 Le fichier application.properties</h3>
-  <p>C'est le <strong>fichier de configuration central</strong> de ton application. Tu peux tout modifier sans toucher au code Java.</p>
-
-  <div class="code-wrap">
-    <div class="code-bar">
-      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
-      <span class="code-lang">properties</span>
-      <span class="code-filename">src/main/resources/application.properties</span>
-    </div>
-    <pre><span class="cmt"># Changer le port du serveur (défaut : 8080)</span>
-server.port=<span class="num">9090</span>
-
-<span class="cmt"># Activer la console H2 (base de données de test accessible dans le navigateur)</span>
-spring.h2.console.enabled=<span class="kw">true</span>
-spring.h2.console.path=/h2-console
-
-<span class="cmt"># Afficher les requêtes SQL générées par Hibernate (utile pour déboguer)</span>
-spring.jpa.show-sql=<span class="kw">true</span>
-
-<span class="cmt"># Afficher les messages d'erreur dans les réponses API (DEV uniquement !)</span>
-server.error.include-message=always</pre>
+├── main/java/com.ecommerce.microcommerce/
+│   ├── <span class="ann">web/controller/</span>
+│   │   └── <span class="cls">ProductController.java</span>      <span class="cmt">← Reçoit les requêtes HTTP</span>
+│   ├── <span class="ann">model/</span>
+│   │   └── <span class="cls">Product.java</span>                   <span class="cmt">← Structure des données</span>
+│   ├── <span class="ann">dao/</span>
+│   │   └── <span class="cls">ProductDao.java</span>               <span class="cmt">← Interface JPA Repository</span>
+│   └── <span class="cls">MicrocommerceApplication.java</span>
+└── main/resources/
+    ├── application.properties                 <span class="cmt">← Configuration générale</span>
+    └── data.sql                               <span class="cmt">← Données initiales BDD</span></pre>
   </div>
 </div>
 
@@ -611,45 +1384,10 @@ server.error.include-message=always</pre>
     </div>
   </div>
 
-  <h3>L'analogie du Restaurant</h3>
-  <div class="note info">
-    <div class="note-icon">🍽️</div>
-    <div class="note-body">
-      <div class="note-title">Comprendre une API REST avec un restaurant</div>
-      <p><strong>👤 Le Client (Toi)</strong> → Tu veux commander un plat<br>
-      <strong>🍳 La Cuisine (Serveur/Base de données)</strong> → C'est là que se trouve la nourriture, mais tu n'as pas le droit d'entrer<br>
-      <strong>🧑‍💼 Le Serveur (L'API REST)</strong> → Il prend ta commande (requête), l'apporte en cuisine, et te ramène ton plat (réponse)<br>
-      <strong>Conclusion :</strong> L'API REST est le messager entre ton besoin et la donnée brute.</p>
-    </div>
-  </div>
-
-  <div class="def">
-    <div class="def-label">📖 Définition REST</div>
-    <p>REST (<em>Representational State Transfer</em>) est un style d'architecture qui utilise le <strong>protocole HTTP</strong> pour échanger des données entre un client et un serveur. Une API REST est une "fenêtre" qu'une application ouvre pour permettre à d'autres logiciels de communiquer avec elle.</p>
-  </div>
-
-  <h3>📝 Le JSON — Le langage universel des données</h3>
-  <p>Une API REST ne renvoie pas une page HTML. Elle renvoie de la <strong>donnée brute au format JSON</strong>.</p>
-
-  <div class="code-wrap">
-    <div class="code-bar">
-      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
-      <span class="code-lang">json</span>
-      <span class="code-filename">Exemple de réponse JSON</span>
-    </div>
-    <pre>{
-  <span class="str">"id"</span>: <span class="num">1</span>,
-  <span class="str">"nom"</span>: <span class="str">"Ordinateur Portable"</span>,
-  <span class="str">"prix"</span>: <span class="num">350</span>
-}
-<span class="cmt">// JSON = format texte léger, lisible par un humain ET par toutes les machines</span>
-<span class="cmt">// (Java, Python, JavaScript, C#... tout le monde comprend JSON)</span></pre>
-  </div>
-
   <h3>🔧 Les 4 Verbes HTTP — Les actions CRUD</h3>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Verbe HTTP</th><th>Action</th><th>Équivalent SQL</th><th>Exemple concret</th></tr></thead>
+      <thead><tr><th>Verbe HTTP</th><th>Action</th><th>SQL équivalent</th><th>Exemple concret</th></tr></thead>
       <tbody>
         <tr><td><span class="hb hb-g">GET</span></td><td>LIRE — Récupérer des données</td><td>SELECT</td><td>"Montre-moi la liste des produits"</td></tr>
         <tr><td><span class="hb hb-b">POST</span></td><td>CRÉER — Ajouter une nouvelle ressource</td><td>INSERT</td><td>"Ajoute ce nouveau produit"</td></tr>
@@ -664,21 +1402,13 @@ server.error.include-message=always</pre>
     <table>
       <thead><tr><th>Requête</th><th>URL</th><th>Ce qui se passe</th></tr></thead>
       <tbody>
-        <tr><td><span class="hb hb-g">GET</span></td><td><code>/Produits</code></td><td>Renvoie la liste de TOUS les produits</td></tr>
-        <tr><td><span class="hb hb-g">GET</span></td><td><code>/Produits/{id}</code></td><td>Renvoie UN seul produit par son ID</td></tr>
+        <tr><td><span class="hb hb-g">GET</span></td><td><code>/Produits</code></td><td>Retourne la liste de TOUS les produits</td></tr>
+        <tr><td><span class="hb hb-g">GET</span></td><td><code>/Produits/{id}</code></td><td>Retourne UN seul produit par son ID</td></tr>
         <tr><td><span class="hb hb-b">POST</span></td><td><code>/Produits</code></td><td>Crée un nouveau produit (corps = JSON)</td></tr>
         <tr><td><span class="hb hb-o">PUT</span></td><td><code>/Produits/{id}</code></td><td>Met à jour le produit avec cet ID</td></tr>
         <tr><td><span class="hb hb-r">DELETE</span></td><td><code>/Produits/{id}</code></td><td>Supprime le produit avec cet ID</td></tr>
       </tbody>
     </table>
-  </div>
-
-  <div class="note success">
-    <div class="note-icon">💡</div>
-    <div class="note-body">
-      <div class="note-title">Principe REST — Ressources et URLs</div>
-      <p>En REST, tout élément manipulé (Produit, Commande, Utilisateur...) est appelé une <strong>Ressource</strong>. Chaque ressource a une <strong>adresse unique (URL)</strong>. On agit sur les ressources via les verbes HTTP. Exemple : <code>http://mon-service/produits/12</code> = le produit numéro 12 de notre service.</p>
-    </div>
   </div>
 </div>
 
@@ -694,111 +1424,9 @@ server.error.include-message=always</pre>
       <span class="ch-emoji">🕹️</span>
     </div>
     <div class="ch-info">
-      <h2>Le Contrôleur &amp; le Retour JSON</h2>
+      <h2>Le Contrôleur REST &amp; le Retour JSON</h2>
       <p>Créer le Modèle de données, le Contrôleur REST, et comprendre la magie de Jackson.</p>
     </div>
-  </div>
-
-  <h3>📦 Étape 1 — Créer le Modèle de données (Product.java)</h3>
-
-  <div class="note info">
-    <div class="note-icon">📏</div>
-    <div class="note-body">
-      <div class="note-title">Les règles d'or d'un JavaBean / POJO</div>
-      <p>Pour qu'un objet Java puisse être converti en JSON automatiquement par Jackson, il doit respecter ces règles : <strong>1)</strong> Attributs privés (encapsulation) · <strong>2)</strong> Constructeur public sans arguments · <strong>3)</strong> Getters et Setters pour chaque attribut · <strong>4)</strong> (Optionnel) méthode toString()</p>
-    </div>
-  </div>
-
-  <div class="code-wrap">
-    <div class="code-bar">
-      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
-      <span class="code-lang">java</span>
-      <span class="code-filename">model/Product.java — Annoté ligne par ligne</span>
-    </div>
-    <pre><span class="kw">package</span> com.ecommerce.microcommerce.model;
-
-<span class="kw">public class</span> <span class="cls">Product</span> {
-
-    <span class="cmt">// RÈGLE 1 : Attributs PRIVÉS → personne ne peut les modifier directement</span>
-    <span class="kw">private int</span> id;
-    <span class="kw">private</span> <span class="cls">String</span> nom;    <span class="cmt">// "nom" = le nom du produit</span>
-    <span class="kw">private int</span> prix;     <span class="cmt">// "prix" = le prix du produit</span>
-
-    <span class="cmt">// RÈGLE 2 : Constructeur SANS arguments (requis par Jackson pour désérialiser)</span>
-    <span class="kw">public</span> <span class="fn">Product</span>() {}
-
-    <span class="cmt">// Constructeur AVEC tous les champs (pratique pour créer des objets dans le code)</span>
-    <span class="kw">public</span> <span class="fn">Product</span>(<span class="kw">int</span> id, <span class="cls">String</span> nom, <span class="kw">int</span> prix) {
-        <span class="kw">this</span>.id = id;      <span class="cmt">// "this.id" = attribut de l'objet, "id" = paramètre</span>
-        <span class="kw">this</span>.nom = nom;
-        <span class="kw">this</span>.prix = prix;
-    }
-
-    <span class="cmt">// RÈGLE 3 : Getters (lecture) et Setters (écriture)</span>
-    <span class="cmt">// IntelliJ les génère automatiquement : Alt+Insert → Getter and Setter</span>
-
-    <span class="kw">public int</span> <span class="fn">getId</span>() { <span class="kw">return</span> id; }
-    <span class="kw">public void</span> <span class="fn">setId</span>(<span class="kw">int</span> id) { <span class="kw">this</span>.id = id; }
-
-    <span class="kw">public</span> <span class="cls">String</span> <span class="fn">getNom</span>() { <span class="kw">return</span> nom; }
-    <span class="kw">public void</span> <span class="fn">setNom</span>(<span class="cls">String</span> nom) { <span class="kw">this</span>.nom = nom; }
-
-    <span class="kw">public int</span> <span class="fn">getPrix</span>() { <span class="kw">return</span> prix; }
-    <span class="kw">public void</span> <span class="fn">setPrix</span>(<span class="kw">int</span> prix) { <span class="kw">this</span>.prix = prix; }
-
-    <span class="cmt">// RÈGLE 4 (optionnel) : toString() pour afficher l'objet facilement</span>
-    <span class="ann">@Override</span>
-    <span class="kw">public</span> <span class="cls">String</span> <span class="fn">toString</span>() {
-        <span class="kw">return</span> <span class="str">"Product{id="</span> + id + <span class="str">", nom='"</span> + nom + <span class="str">"', prix="</span> + prix + <span class="str">"}"</span>;
-    }
-}</pre>
-  </div>
-
-  <h3>🕹️ Étape 2 — Créer le Contrôleur REST</h3>
-  <p>Le Contrôleur est le <strong>"cerveau" de ton microservice</strong>. Il écoute les requêtes HTTP et renvoie les réponses.</p>
-
-  <div class="code-wrap">
-    <div class="code-bar">
-      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
-      <span class="code-lang">java</span>
-      <span class="code-filename">web/controller/ProductController.java — Explication ligne par ligne</span>
-    </div>
-    <pre><span class="kw">package</span> com.ecommerce.microcommerce.web.controller;
-
-<span class="kw">import</span> com.ecommerce.microcommerce.model.Product;
-
-<span class="ann">@RestController</span>
-<span class="cmt">// ┌─ @Controller  → Cette classe gère les requêtes HTTP entrantes</span>
-<span class="cmt">// └─ @ResponseBody → Ce que la méthode retourne est envoyé directement au client</span>
-<span class="cmt">//                    en JSON (pas de page HTML)</span>
-<span class="kw">public class</span> <span class="cls">ProductController</span> {
-
-    <span class="cmt">// ═══ ENDPOINT 1 ══════════════════════════════════════════════════════</span>
-    <span class="ann">@GetMapping</span>(value = <span class="str">"/Produits"</span>)
-    <span class="cmt">// ↑ Cette méthode répond aux requêtes GET envoyées à /Produits</span>
-    <span class="kw">public</span> List&lt;<span class="cls">Product</span>&gt; <span class="fn">listeProduits</span>() {
-        <span class="cmt">// Pour l'instant : liste "en dur". Plus tard, on utilisera le DAO.</span>
-        <span class="kw">return</span> Arrays.<span class="fn">asList</span>(
-            <span class="kw">new</span> <span class="cls">Product</span>(<span class="num">1</span>, <span class="str">"Ordinateur portable"</span>, <span class="num">350</span>),
-            <span class="kw">new</span> <span class="cls">Product</span>(<span class="num">2</span>, <span class="str">"Aspirateur Robot"</span>, <span class="num">500</span>),
-            <span class="kw">new</span> <span class="cls">Product</span>(<span class="num">3</span>, <span class="str">"Table de Ping Pong"</span>, <span class="num">750</span>)
-        );
-        <span class="cmt">// Spring voit qu'on retourne une List&lt;Product&gt;</span>
-        <span class="cmt">// Il appelle Jackson qui crée ce JSON : [{...}, {...}, {...}]</span>
-    }
-
-    <span class="cmt">// ═══ ENDPOINT 2 ══════════════════════════════════════════════════════</span>
-    <span class="ann">@GetMapping</span>(value = <span class="str">"/Produits/{id}"</span>)
-    <span class="cmt">// ↑ {id} = partie VARIABLE de l'URL. Ex: /Produits/42 → id = 42</span>
-    <span class="kw">public</span> <span class="cls">Product</span> <span class="fn">afficherUnProduit</span>(<span class="ann">@PathVariable</span> <span class="kw">int</span> id) {
-        <span class="cmt">// @PathVariable = pont entre {id} dans l'URL et la variable Java "id"</span>
-        <span class="cmt">// Spring extrait la valeur de l'URL et la met dans la variable</span>
-
-        <span class="cmt">// Simulation : on crée un produit factice avec l'id reçu</span>
-        <span class="kw">return new</span> <span class="cls">Product</span>(id, <span class="str">"Aspirateur"</span>, <span class="num">100</span>);
-        <span class="cmt">// Spring retourne → {"id": 42, "nom": "Aspirateur", "prix": 100}</span>
-    }
-}</pre>
   </div>
 
   <h3>🔑 Tableau de toutes les annotations du Contrôleur</h3>
@@ -817,44 +1445,41 @@ server.error.include-message=always</pre>
     </table>
   </div>
 
-  <h3>⚡ Comment Jackson convertit automatiquement en JSON ?</h3>
-  <p>Quand ta méthode retourne un objet <code>Product</code>, Spring Boot utilise la librairie <strong>Jackson</strong> pour le convertir en JSON :</p>
-
-  <div class="flow">
-    <div class="fbox">
-      <div class="fb fb-pu">Objet Product</div>
-      <div class="fl">En mémoire Java</div>
+  <div class="code-wrap">
+    <div class="code-bar">
+      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
+      <span class="code-lang">java</span>
+      <span class="code-filename">web/controller/ProductController.java</span>
     </div>
-    <div class="farr">→</div>
-    <div class="fbox">
-      <div class="fb fb-or">Jackson appelle<br>les Getters</div>
-      <div class="fl">getId() → "id":1</div>
-    </div>
-    <div class="farr">→</div>
-    <div class="fbox">
-      <div class="fb fb-bl">{"id":1,"nom":"...","prix":350}</div>
-      <div class="fl">Chaîne JSON envoyée au client</div>
-    </div>
-  </div>
+    <pre><span class="ann">@RestController</span>  <span class="cmt">// = @Controller + @ResponseBody → retour JSON automatique</span>
+<span class="kw">public class</span> <span class="cls">ProductController</span> {
 
-  <p>L'inverse fonctionne aussi (<strong>désérialisation</strong>) : Jackson lit le JSON entrant et appelle tes Setters pour créer un objet Java.</p>
+    <span class="kw">private final</span> <span class="cls">ProductDao</span> productDao;
+    <span class="kw">public</span> <span class="fn">ProductController</span>(<span class="cls">ProductDao</span> productDao) { <span class="kw">this</span>.productDao = productDao; }
 
-  <div class="resume">
-    <div class="resume-title">📌 Résumé — Chapitre 6</div>
-    <ul>
-      <li><code>@RestController</code> = <code>@Controller</code> + <code>@ResponseBody</code> → retour JSON automatique</li>
-      <li><code>@GetMapping</code>, <code>@PostMapping</code>... lient un verbe HTTP à une méthode Java</li>
-      <li><code>@PathVariable</code> extrait une valeur depuis l'URL (ex: <code>/Produits/{id}</code>)</li>
-      <li>Jackson convertit automatiquement les objets Java ↔ JSON</li>
-      <li>Le Modèle doit être un JavaBean valide (getters/setters/constructeur vide) pour que Jackson fonctionne</li>
-    </ul>
+    <span class="ann">@GetMapping</span>(<span class="str">"/Produits"</span>)
+    <span class="kw">public</span> List&lt;<span class="cls">Product</span>&gt; <span class="fn">listeProduits</span>() {
+        <span class="kw">return</span> productDao.<span class="fn">findAll</span>();
+    }
+
+    <span class="ann">@GetMapping</span>(<span class="str">"/Produits/{id}"</span>)
+    <span class="kw">public</span> <span class="cls">Product</span> <span class="fn">afficherUnProduit</span>(<span class="ann">@PathVariable</span> <span class="kw">int</span> id) {
+        <span class="kw">return</span> productDao.<span class="fn">findById</span>(id).<span class="fn">orElse</span>(<span class="kw">null</span>);
+    }
+
+    <span class="ann">@PostMapping</span>(<span class="str">"/Produits"</span>)
+    <span class="ann">@ResponseStatus</span>(HttpStatus.CREATED)
+    <span class="kw">public</span> <span class="cls">Product</span> <span class="fn">ajouterProduit</span>(<span class="ann">@Valid</span> <span class="ann">@RequestBody</span> <span class="cls">Product</span> product) {
+        <span class="kw">return</span> productDao.<span class="fn">save</span>(product);
+    }
+}</pre>
   </div>
 </div>
 
 <hr class="sep">
 
 <!-- ████████████████████████████████████████
-     CHAPITRE 7 — PATRON DAO
+     CHAPITRE 7 — DAO SPRING
 ████████████████████████████████████████ -->
 <div class="chapter" id="ch7">
   <div class="ch-header">
@@ -863,117 +1488,12 @@ server.error.include-message=always</pre>
       <span class="ch-emoji">🗃️</span>
     </div>
     <div class="ch-info">
-      <h2>Le Patron DAO</h2>
-      <p>Séparer l'accès aux données de la logique métier — une bonne pratique fondamentale.</p>
+      <h2>Le Patron DAO Spring — Injection de Dépendances</h2>
+      <p>Séparer l'accès aux données de la logique métier — version Spring avec @Repository et IoC.</p>
     </div>
   </div>
 
-  <h3>C'est quoi un DAO ?</h3>
-  <div class="def">
-    <div class="def-label">📖 DAO = Data Access Object</div>
-    <p>Le DAO est un <strong>patron de conception</strong> (Design Pattern) qui consiste à créer une classe intermédiaire dédiée à l'accès aux données. Le Contrôleur ne va plus directement chercher les données — il demande au DAO de le faire à sa place.</p>
-  </div>
-
-  <div class="note purple">
-    <div class="note-icon">📚</div>
-    <div class="note-body">
-      <div class="note-title">Analogie du Bibliothécaire</div>
-      <p>Tu ne vas pas toi-même dans la réserve de la bibliothèque chercher un livre. Tu demandes au <strong>bibliothécaire (DAO)</strong>. Il connaît l'organisation du stockage et te ramène ce que tu veux. Toi, tu n'as pas besoin de savoir où les livres sont rangés.</p>
-    </div>
-  </div>
-
-  <h3>Pourquoi utiliser un DAO ?</h3>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Avantage</th><th>Explication concrète</th></tr></thead>
-      <tbody>
-        <tr><td class="ok"><strong>Séparation des responsabilités</strong></td><td>Le Contrôleur gère le HTTP. Le DAO gère les données. Chacun son rôle.</td></tr>
-        <tr><td class="ok"><strong>Indépendance de la source</strong></td><td>Changer de MySQL à MongoDB ? Tu ne modifies que le DAO. Le Contrôleur ne change pas.</td></tr>
-        <tr><td class="ok"><strong>Réutilisabilité</strong></td><td>Plusieurs contrôleurs peuvent utiliser le même DAO.</td></tr>
-        <tr><td class="ok"><strong>Testabilité</strong></td><td>On peut tester le Contrôleur sans vraie base de données (via des Mocks).</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>📝 Étape 1 — L'Interface (Le Contrat)</h3>
-
-  <div class="code-wrap">
-    <div class="code-bar">
-      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
-      <span class="code-lang">java</span>
-      <span class="code-filename">dao/ProductDao.java — L'interface (le contrat)</span>
-    </div>
-    <pre><span class="kw">package</span> com.ecommerce.microcommerce.dao;
-
-<span class="kw">public interface</span> <span class="cls">ProductDao</span> {
-
-    <span class="cmt">// Une interface définit QUOI faire, pas COMMENT le faire</span>
-    <span class="cmt">// Quiconque implémente cette interface DOIT fournir ces 3 méthodes</span>
-
-    List&lt;<span class="cls">Product</span>&gt; <span class="fn">findAll</span>();
-    <span class="cmt">// ↑ Retourne la liste complète de tous les produits</span>
-
-    <span class="cls">Product</span> <span class="fn">findById</span>(<span class="kw">int</span> id);
-    <span class="cmt">// ↑ Trouve un produit par son identifiant unique</span>
-
-    <span class="cls">Product</span> <span class="fn">save</span>(<span class="cls">Product</span> product);
-    <span class="cmt">// ↑ Sauvegarde (ajoute ou met à jour) un produit</span>
-}</pre>
-  </div>
-
-  <div class="note warn">
-    <div class="note-icon">✨</div>
-    <div class="note-body">
-      <div class="note-title">Pourquoi ces noms précis (findAll, findById, save) ?</div>
-      <p>Ce sont les <strong>conventions de nommage de Spring Data JPA</strong>. En respectant ces noms maintenant, Spring sera capable plus tard de <strong>générer automatiquement le code SQL</strong> correspondant, simplement en lisant le nom des méthodes. C'est la magie qu'on verra au Chapitre 10 !</p>
-    </div>
-  </div>
-
-  <h3>🔨 Étape 2 — L'Implémentation (La Simulation avec ArrayList)</h3>
-
-  <div class="code-wrap">
-    <div class="code-bar">
-      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
-      <span class="code-lang">java</span>
-      <span class="code-filename">dao/ProductDaoImpl.java — L'implémentation simulée</span>
-    </div>
-    <pre><span class="ann">@Repository</span>
-<span class="cmt">// ↑ Dit à Spring : "Cette classe est dédiée à l'accès aux données"</span>
-<span class="cmt">// ↑ Spring crée automatiquement une instance de cette classe (un Bean)</span>
-<span class="cmt">// ↑ Spring traduit aussi les exceptions BDD en exceptions Java standard</span>
-<span class="kw">public class</span> <span class="cls">ProductDaoImpl</span> <span class="kw">implements</span> <span class="cls">ProductDao</span> {
-
-    <span class="cmt">// static = PARTAGÉ par tous. Si l'Utilisateur A ajoute un produit,</span>
-    <span class="cmt">// l'Utilisateur B le verra aussi (tant que le serveur tourne).</span>
-    <span class="kw">private static</span> List&lt;<span class="cls">Product</span>&gt; products = <span class="kw">new</span> ArrayList&lt;&gt;(Arrays.<span class="fn">asList</span>(
-        <span class="kw">new</span> <span class="cls">Product</span>(<span class="num">1</span>, <span class="str">"Ordinateur portable"</span>, <span class="num">350</span>),
-        <span class="kw">new</span> <span class="cls">Product</span>(<span class="num">2</span>, <span class="str">"Aspirateur Robot"</span>,    <span class="num">500</span>),
-        <span class="kw">new</span> <span class="cls">Product</span>(<span class="num">3</span>, <span class="str">"Table de Ping Pong"</span>, <span class="num">750</span>)
-    ));
-
-    <span class="ann">@Override</span>
-    <span class="kw">public</span> List&lt;<span class="cls">Product</span>&gt; <span class="fn">findAll</span>() {
-        <span class="kw">return</span> products;  <span class="cmt">// Retourne simplement toute la liste</span>
-    }
-
-    <span class="ann">@Override</span>
-    <span class="kw">public</span> <span class="cls">Product</span> <span class="fn">findById</span>(<span class="kw">int</span> id) {
-        <span class="kw">for</span> (<span class="cls">Product</span> p : products) {       <span class="cmt">// Parcourt toute la liste</span>
-            <span class="kw">if</span> (p.<span class="fn">getId</span>() == id) <span class="kw">return</span> p;  <span class="cmt">// Retourne si l'ID correspond</span>
-        }
-        <span class="kw">return null</span>;  <span class="cmt">// Pas trouvé → null (on améliorera ça au Chapitre 12)</span>
-    }
-
-    <span class="ann">@Override</span>
-    <span class="kw">public</span> <span class="cls">Product</span> <span class="fn">save</span>(<span class="cls">Product</span> product) {
-        products.<span class="fn">add</span>(product);  <span class="cmt">// Ajoute le produit à la liste</span>
-        <span class="kw">return</span> product;          <span class="cmt">// Retourne le produit sauvegardé</span>
-    }
-}</pre>
-  </div>
-
-  <h3>🔌 Étape 3 — L'Injection de Dépendances dans le Contrôleur</h3>
-
+  <h3>Injection par Constructeur (méthode recommandée)</h3>
   <div class="note info">
     <div class="note-icon">💉</div>
     <div class="note-body">
@@ -986,60 +1506,29 @@ server.error.include-message=always</pre>
     <div class="code-bar">
       <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
       <span class="code-lang">java</span>
-      <span class="code-filename">ProductController.java — Avec injection du DAO</span>
+      <span class="code-filename">dao/ProductDaoImpl.java — @Repository Spring</span>
     </div>
-    <pre><span class="ann">@RestController</span>
-<span class="kw">public class</span> <span class="cls">ProductController</span> {
+    <pre><span class="ann">@Repository</span>
+<span class="cmt">// ↑ Dit à Spring : "Cette classe est dédiée à l'accès aux données"</span>
+<span class="cmt">// ↑ Spring crée automatiquement une instance (Bean) et l'injecte où nécessaire</span>
+<span class="kw">public class</span> <span class="cls">ProductDaoImpl</span> <span class="kw">implements</span> <span class="cls">ProductDao</span> {
 
-    <span class="cmt">// "final" = une fois initialisé, ne change jamais (sécurité)</span>
-    <span class="kw">private final</span> <span class="cls">ProductDao</span> productDao;
+    <span class="kw">private static</span> List&lt;<span class="cls">Product</span>&gt; products = <span class="kw">new</span> ArrayList&lt;&gt;(Arrays.<span class="fn">asList</span>(
+        <span class="kw">new</span> <span class="cls">Product</span>(<span class="num">1</span>, <span class="str">"Ordinateur portable"</span>, <span class="num">350</span>),
+        <span class="kw">new</span> <span class="cls">Product</span>(<span class="num">2</span>, <span class="str">"Aspirateur Robot"</span>,    <span class="num">500</span>),
+        <span class="kw">new</span> <span class="cls">Product</span>(<span class="num">3</span>, <span class="str">"Table de Ping Pong"</span>, <span class="num">750</span>)
+    ));
 
-    <span class="cmt">// INJECTION PAR CONSTRUCTEUR (méthode recommandée)</span>
-    <span class="cmt">// Spring voit ce constructeur → cherche un Bean @Repository</span>
-    <span class="cmt">// qui implémente ProductDao → injecte automatiquement ProductDaoImpl</span>
-    <span class="kw">public</span> <span class="fn">ProductController</span>(<span class="cls">ProductDao</span> productDao) {
-        <span class="kw">this</span>.productDao = productDao;
-    }
+    <span class="ann">@Override</span>
+    <span class="kw">public</span> List&lt;<span class="cls">Product</span>&gt; <span class="fn">findAll</span>() { <span class="kw">return</span> products; }
 
-    <span class="ann">@GetMapping</span>(<span class="str">"/Produits"</span>)
-    <span class="kw">public</span> List&lt;<span class="cls">Product</span>&gt; <span class="fn">listeProduits</span>() {
-        <span class="kw">return</span> productDao.<span class="fn">findAll</span>();   <span class="cmt">// Délègue au DAO</span>
-    }
-
-    <span class="ann">@GetMapping</span>(<span class="str">"/Produits/{id}"</span>)
-    <span class="kw">public</span> <span class="cls">Product</span> <span class="fn">afficherUnProduit</span>(<span class="ann">@PathVariable</span> <span class="kw">int</span> id) {
-        <span class="kw">return</span> productDao.<span class="fn">findById</span>(id);
-    }
-
-    <span class="ann">@PostMapping</span>(<span class="str">"/Produits"</span>)
-    <span class="kw">public</span> <span class="cls">Product</span> <span class="fn">ajouterProduit</span>(<span class="ann">@RequestBody</span> <span class="cls">Product</span> product) {
-        <span class="cmt">// @RequestBody = Jackson convertit le JSON reçu → objet Java Product</span>
-        <span class="kw">return</span> productDao.<span class="fn">save</span>(product);
+    <span class="ann">@Override</span>
+    <span class="kw">public</span> <span class="cls">Product</span> <span class="fn">findById</span>(<span class="kw">int</span> id) {
+        <span class="kw">for</span> (<span class="cls">Product</span> p : products)
+            <span class="kw">if</span> (p.<span class="fn">getId</span>() == id) <span class="kw">return</span> p;
+        <span class="kw">return null</span>;
     }
 }</pre>
-  </div>
-
-  <h3>📊 Flux d'exécution complet (GET /Produits/2)</h3>
-  <div class="flow">
-    <div class="fbox"><div class="fb fb-bl">Client HTTP</div><div class="fl">GET /Produits/2</div></div>
-    <div class="farr">→</div>
-    <div class="fbox"><div class="fb fb-or">Contrôleur</div><div class="fl">Reçoit, appelle DAO</div></div>
-    <div class="farr">→</div>
-    <div class="fbox"><div class="fb fb-pu">DAO</div><div class="fl">Cherche dans la liste / BDD</div></div>
-    <div class="farr">→</div>
-    <div class="fbox"><div class="fb fb-or">Jackson</div><div class="fl">Product → JSON</div></div>
-    <div class="farr">→</div>
-    <div class="fbox"><div class="fb fb-gr">Réponse JSON</div><div class="fl">200 OK au client</div></div>
-  </div>
-
-  <p>Résultat obtenu sur <code>http://localhost:9090/Produits</code> :</p>
-  <div class="code-wrap">
-    <div class="code-bar"><div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div><span class="code-lang">json</span></div>
-    <pre>[
-  {<span class="str">"id"</span>: <span class="num">1</span>, <span class="str">"nom"</span>: <span class="str">"Ordinateur portable"</span>, <span class="str">"prix"</span>: <span class="num">350</span>},
-  {<span class="str">"id"</span>: <span class="num">2</span>, <span class="str">"nom"</span>: <span class="str">"Aspirateur Robot"</span>,    <span class="str">"prix"</span>: <span class="num">500</span>},
-  {<span class="str">"id"</span>: <span class="num">3</span>, <span class="str">"nom"</span>: <span class="str">"Table de Ping Pong"</span>, <span class="str">"prix"</span>: <span class="num">750</span>}
-]</pre>
   </div>
 </div>
 
@@ -1060,80 +1549,26 @@ server.error.include-message=always</pre>
     </div>
   </div>
 
-  <h3>Pourquoi pas le navigateur ?</h3>
-  <p>Le navigateur ne peut faire que des requêtes <span class="hb hb-g">GET</span> automatiquement (quand tu tapes une URL). Pour tester <span class="hb hb-b">POST</span>, <span class="hb hb-o">PUT</span> et <span class="hb hb-r">DELETE</span> avec un corps JSON personnalisé, il faut <strong>Postman</strong>.</p>
-
-  <h3>📊 Les Codes de Statut HTTP — Le langage du serveur</h3>
+  <h3>📊 Les Codes de Statut HTTP</h3>
   <div class="table-wrap">
     <table>
       <thead><tr><th>Code</th><th>Signification</th><th>Quand l'obtient-on ?</th></tr></thead>
       <tbody>
         <tr><td><strong class="ok">200 OK</strong></td><td>Succès</td><td>GET a retourné des données avec succès</td></tr>
         <tr><td><strong class="ok">201 Created</strong></td><td>Ressource créée</td><td>POST a ajouté un nouveau produit</td></tr>
-        <tr><td><strong class="ok">204 No Content</strong></td><td>Succès sans corps</td><td>DELETE réussi (pas de données à retourner)</td></tr>
+        <tr><td><strong class="ok">204 No Content</strong></td><td>Succès sans corps</td><td>DELETE réussi</td></tr>
         <tr><td><strong class="med">400 Bad Request</strong></td><td>Requête incorrecte</td><td>Format JSON malformé, données invalides</td></tr>
         <tr><td><strong class="ko">404 Not Found</strong></td><td>Ressource introuvable</td><td>L'ID demandé n'existe pas en base</td></tr>
-        <tr><td><strong class="ko">500 Internal Error</strong></td><td>Crash du serveur</td><td>Une exception Java non gérée s'est produite</td></tr>
+        <tr><td><strong class="ko">500 Internal Error</strong></td><td>Crash du serveur</td><td>Une exception Java non gérée</td></tr>
       </tbody>
     </table>
-  </div>
-
-  <h3>📤 Tester un POST dans Postman — Étape par étape</h3>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-body">Dans la liste déroulante, changer de <code>GET</code> à <strong>POST</strong></div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-body">Saisir l'URL : <code>http://localhost:9090/Produits</code></div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-body">Cliquer sur l'onglet <strong>Body</strong></div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-body">Sélectionner <strong>raw</strong> puis changer le type en <strong>JSON</strong></div>
-    </div>
-    <div class="step">
-      <div class="step-num">5</div>
-      <div class="step-body">Coller le JSON suivant :<br>
-        <code>{ "id": 4, "nom": "iPhone 15", "prix": 1200 }</code>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">6</div>
-      <div class="step-body">Cliquer sur <strong>Send</strong> → Tu dois obtenir <strong>200 OK</strong> ou <strong>201 Created</strong></div>
-    </div>
-    <div class="step">
-      <div class="step-num">7</div>
-      <div class="step-body">Faire un GET sur <code>/Produits</code> pour vérifier que le nouveau produit apparaît dans la liste !</div>
-    </div>
-  </div>
-
-  <h3>📚 Les Collections Postman</h3>
-  <p>Les Collections sont des dossiers qui <strong>groupent et sauvegardent</strong> tes requêtes par projet. Tu peux :</p>
-  <ul>
-    <li>Sauvegarder tes tests pour les réutiliser plus tard</li>
-    <li>Partager tes tests avec tes collègues</li>
-    <li>Exécuter toutes les requêtes dans un ordre défini (Runner)</li>
-    <li>Simuler un scénario : POST pour créer → GET pour vérifier → DELETE pour nettoyer</li>
-  </ul>
-
-  <div class="note success">
-    <div class="note-icon">💡</div>
-    <div class="note-body">
-      <div class="note-title">Analyser les en-têtes de la réponse</div>
-      <p>Après une requête, clique sur l'onglet "Headers" dans Postman. Tu verras <code>Content-Type: application/json; charset=UTF-8</code> — cela confirme que ton serveur renvoie bien du JSON ! Le <code>charset=UTF-8</code> garantit le support des accents et caractères spéciaux.</p>
-    </div>
   </div>
 </div>
 
 <hr class="sep">
 
 <!-- ████████████████████████████████████████
-     CHAPITRE 9 — JPA & PERSISTANCE
+     CHAPITRE 9 — JPA
 ████████████████████████████████████████ -->
 <div class="chapter" id="ch9">
   <div class="ch-header">
@@ -1147,53 +1582,7 @@ server.error.include-message=always</pre>
     </div>
   </div>
 
-  <h3>Pourquoi une Base de Données ?</h3>
-  <div class="note danger">
-    <div class="note-icon">💀</div>
-    <div class="note-body">
-      <div class="note-title">Le Problème de l'Amnésie</div>
-      <p>Notre microservice avec ArrayList est <strong>"amnésique"</strong>. À chaque redémarrage du serveur, TOUTES les données disparaissent. Les produits ajoutés via POST ? Perdus. En mémoire RAM = volatil = effacé à l'arrêt du programme.</p>
-    </div>
-  </div>
-
-  <div class="note info">
-    <div class="note-icon">🗄️</div>
-    <div class="note-body">
-      <div class="note-title">La solution : une armoire de classement externe</div>
-      <p>La base de données est comme une <strong>armoire de classement</strong> à l'extérieur du microservice. Même si le microservice s'éteint, les fiches (données) restent dans l'armoire. Au redémarrage, il retrouve tout son catalogue intact.</p>
-    </div>
-  </div>
-
-  <h3>⚡ Le Problème : Java vs SQL ne parlent pas la même langue</h3>
-  <p>C'est ce qu'on appelle le <strong>Déséquilibre d'Impédance Objet-Relationnel</strong> :</p>
-
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Problème</th><th>Monde Java</th><th>Monde SQL</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Nommage</strong></td><td><code>targetDate</code> (camelCase)</td><td><code>target_date</code> (snake_case)</td></tr>
-        <tr><td><strong>Relations</strong></td><td><code>List&lt;Employee&gt;</code> dans une classe</td><td>Tables de jointure avec clés étrangères</td></tr>
-        <tr><td><strong>Héritage</strong></td><td><code>FullTime extends Employee</code></td><td>Non supporté nativement → 1 table aplatie + colonne discriminante</td></tr>
-        <tr><td><strong>Unité de données</strong></td><td>Objets avec comportements (méthodes)</td><td>Lignes et colonnes — données uniquement</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>📜 Évolution des technologies (avant JPA)</h3>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Technologie</th><th>Ce qu'on devait faire</th><th>Difficulté</th></tr></thead>
-      <tbody>
-        <tr><td><strong>JDBC brut</strong></td><td>Ouvrir connexion, écrire SQL à la main, parser le ResultSet colonne par colonne</td><td class="ko">😫 Très pénible</td></tr>
-        <tr><td><strong>Spring JDBC Template</strong></td><td>Moins de code, mais SQL toujours manuel dans des chaînes de caractères</td><td class="med">😐 Mieux, mais SQL risqué</td></tr>
-        <tr><td><strong>MyBatis</strong></td><td>SQL dans des fichiers XML séparés, objets remplis automatiquement</td><td class="med">🙂 Propre, mais des milliers de fichiers SQL</td></tr>
-        <tr><td><strong>JPA + Hibernate</strong></td><td>Zéro SQL → annote ta classe, JPA génère les requêtes</td><td class="ok">😍 Très productif</td></tr>
-        <tr><td><strong>Spring Data JPA</strong></td><td>Encore moins → juste une interface, Spring génère tout</td><td class="ok">🤩 Presque zéro code</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>🔑 JPA vs Hibernate — Quelle différence ?</h3>
+  <h3>🔑 JPA vs Hibernate — La différence essentielle</h3>
   <div class="cards">
     <div class="card">
       <div class="card-top">
@@ -1201,9 +1590,8 @@ server.error.include-message=always</pre>
         <h4>JPA = La Spécification (les règles)</h4>
       </div>
       <div class="card-body">
-        <p><strong>Définition :</strong> JPA (Java Persistence API) est un <em>document de règles</em> qui dit "voilà comment on doit sauvegarder des données en Java". Mais JPA seul ne "fait" rien.</p>
-        <p><strong>Analogie :</strong> JPA = le <strong>Code de la route</strong> (les règles)</p>
         <p>JPA définit les annotations : <code>@Entity</code>, <code>@Id</code>, <code>@Column</code>...</p>
+        <p><strong>Analogie :</strong> JPA = le <strong>Code de la route</strong> (les règles)</p>
       </div>
     </div>
     <div class="card">
@@ -1212,95 +1600,35 @@ server.error.include-message=always</pre>
         <h4>Hibernate = L'Implémentation (le moteur)</h4>
       </div>
       <div class="card-body">
-        <p><strong>Définition :</strong> Hibernate est le logiciel qui <em>exécute réellement</em> le travail de traduction entre Java et SQL.</p>
-        <p><strong>Analogie :</strong> Hibernate = la <strong>Voiture</strong> (l'outil qui roule en suivant les règles)</p>
-        <p>Dans Spring Boot, on utilise JPA comme standard et Hibernate travaille en arrière-plan.</p>
+        <p>Hibernate traduit les classes Java en SQL et exécute les opérations.</p>
+        <p><strong>Analogie :</strong> Hibernate = la <strong>Voiture</strong> (l'outil qui roule)</p>
       </div>
     </div>
   </div>
 
-  <h3>🏷️ Le Mapping ORM — Le concept central</h3>
-  <div class="def">
-    <div class="def-label">📖 ORM = Object-Relational Mapping</div>
-    <p>Le Mapping est le processus de <strong>traduction automatique</strong> entre le monde Java et le monde SQL. Il établit la correspondance :</p>
-  </div>
-
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Monde Java</th><th>Correspondance</th><th>Monde SQL</th></tr></thead>
-      <tbody>
-        <tr><td><code>class Product</code></td><td>→</td><td>Table <code>product</code></td></tr>
-        <tr><td>Une instance d'objet</td><td>→</td><td>Une ligne dans la table</td></tr>
-        <tr><td>Un attribut (<code>private String nom</code>)</td><td>→</td><td>Une colonne (<code>NOM</code>)</td></tr>
-        <tr><td><code>List&lt;Order&gt; orders</code> dans <code>Product</code></td><td>→</td><td>Clé étrangère + jointure</td></tr>
-      </tbody>
-    </table>
-  </div>
-
   <h3>🏷️ Les annotations JPA essentielles</h3>
-
   <div class="code-wrap">
     <div class="code-bar">
       <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
       <span class="code-lang">java</span>
-      <span class="code-filename">model/Product.java — Transformé en Entité JPA</span>
+      <span class="code-filename">model/Product.java — Entité JPA</span>
     </div>
-    <pre><span class="ann">@Entity</span>
-<span class="cmt">// ↑ OBLIGATOIRE : "Cette classe représente une table dans la BDD"</span>
-<span class="cmt">// Si la classe s'appelle Product → JPA gère une table nommée "product"</span>
-
+    <pre><span class="ann">@Entity</span>           <span class="cmt">// Cette classe = une table dans la BDD</span>
 <span class="ann">@Table</span>(name = <span class="str">"product"</span>)
-<span class="cmt">// ↑ OPTIONNEL : Spécifier le nom exact de la table SQL</span>
-<span class="cmt">// Utile si le nom de la classe diffère du nom de la table</span>
-
 <span class="kw">public class</span> <span class="cls">Product</span> {
 
     <span class="ann">@Id</span>
-    <span class="cmt">// ↑ OBLIGATOIRE : Marque ce champ comme la CLÉ PRIMAIRE de la table</span>
-
-    <span class="ann">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)
-    <span class="cmt">// ↑ La valeur est générée AUTOMATIQUEMENT par la BDD (auto-incrément)</span>
-    <span class="cmt">// 1, 2, 3, 4... → plus besoin de gérer les IDs manuellement</span>
+    <span class="ann">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)  <span class="cmt">// Auto-incrément</span>
     <span class="kw">private int</span> id;
 
-    <span class="ann">@Column</span>(name = <span class="str">"nom"</span>)
-    <span class="cmt">// ↑ OPTIONNEL : Lie cet attribut Java à la colonne SQL "nom"</span>
-    <span class="cmt">// Si tu ne mets pas @Column, JPA utilise le nom de l'attribut</span>
-
     <span class="ann">@Size</span>(min = <span class="num">3</span>)
-    <span class="cmt">// ↑ VALIDATION : Le nom doit avoir au moins 3 caractères</span>
     <span class="kw">private</span> <span class="cls">String</span> nom;
 
     <span class="ann">@Min</span>(<span class="num">1</span>)
-    <span class="cmt">// ↑ VALIDATION : Le prix doit être au minimum 1</span>
     <span class="kw">private int</span> prix;
 
-    <span class="cmt">// constructeurs, getters, setters... (inchangés)</span>
+    <span class="cmt">// constructeurs, getters, setters...</span>
 }</pre>
-  </div>
-
-  <h3>⚡ Les 4 opérations de l'EntityManager</h3>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Méthode</th><th>Action</th><th>SQL généré</th><th>Analogie</th></tr></thead>
-      <tbody>
-        <tr><td><code>persist(obj)</code></td><td>Insérer un nouvel objet</td><td><code>INSERT INTO ...</code></td><td>Ajouter un contact dans son répertoire</td></tr>
-        <tr><td><code>merge(obj)</code></td><td>Mettre à jour un objet existant</td><td><code>UPDATE ... SET ...</code></td><td>Modifier le numéro d'un contact</td></tr>
-        <tr><td><code>remove(obj)</code></td><td>Supprimer un objet</td><td><code>DELETE FROM ...</code></td><td>Supprimer une fiche d'archive</td></tr>
-        <tr><td><code>find(Classe, id)</code></td><td>Trouver un objet par son ID</td><td><code>SELECT * WHERE id=?</code></td><td>Chercher un dossier dans une armoire par son étiquette</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="resume">
-    <div class="resume-title">📌 Résumé — Chapitre 9</div>
-    <ul>
-      <li>ArrayList = données perdues au redémarrage → il faut une vraie BDD</li>
-      <li><strong>JPA</strong> = la spécification (les règles). <strong>Hibernate</strong> = l'implémentation (le moteur)</li>
-      <li>ORM = le traducteur : classe Java ↔ table SQL, objet Java ↔ ligne SQL</li>
-      <li><code>@Entity</code> = marque une classe comme table BDD, <code>@Id</code> = clé primaire</li>
-      <li><strong>H2</strong> = base de données légère en mémoire, parfaite pour le développement et les tests</li>
-    </ul>
   </div>
 </div>
 
@@ -1317,160 +1645,49 @@ server.error.include-message=always</pre>
     </div>
     <div class="ch-info">
       <h2>Spring Data JPA — Zéro SQL, Zéro Implémentation</h2>
-      <p>La magie ultime : une simple interface suffit pour accéder à toute la base de données.</p>
-    </div>
-  </div>
-
-  <h3>Le Problème de l'EntityManager pur</h3>
-  <p>Si ton projet a 50 entités (Produit, Commande, Paiement, Utilisateur...), tu dois créer 50 classes d'implémentation DAO avec les mêmes méthodes répétitives. Hundreds de lignes de copier-coller = source d'erreurs.</p>
-
-  <div class="note success">
-    <div class="note-icon">✨</div>
-    <div class="note-body">
-      <div class="note-title">La Solution Spring Data JPA</div>
-      <p>Tu déclares une simple interface qui hérite de <code>JpaRepository</code>. Spring génère <strong>automatiquement</strong> toute l'implémentation SQL au démarrage de l'application. Zéro classe d'implémentation à écrire !</p>
+      <p>Une simple interface suffit pour accéder à toute la base de données.</p>
     </div>
   </div>
 
   <h3>La Pyramide de la Persistance</h3>
   <div class="pyramid">
     <div class="py-layer" style="background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.3);width:180px">Ton Application</div>
-    <div class="py-layer" style="background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);width:250px">
-      Spring Data JPA
-      <span class="py-sub"> → interfaces Repository</span>
-    </div>
-    <div class="py-layer" style="background:rgba(192,132,252,0.1);border:1px solid rgba(192,132,252,0.3);width:330px">
-      JPA (La norme / les règles)
-    </div>
-    <div class="py-layer" style="background:rgba(251,146,60,0.1);border:1px solid rgba(251,146,60,0.3);width:420px">
-      Hibernate (Le moteur traducteur)
-    </div>
-    <div class="py-layer" style="background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.3);width:510px">
-      JDBC (Le tuyau physique)
-    </div>
-    <div class="py-layer" style="background:rgba(139,148,158,0.1);border:1px solid rgba(139,148,158,0.3);width:580px">
-      Base de Données (H2 / MySQL / PostgreSQL...)
-    </div>
-  </div>
-  <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:8px"><em>Plus on monte dans la pyramide, plus c'est simple à utiliser</em></p>
-
-  <h3>📝 Étape 1 — Ajouter les dépendances</h3>
-  <div class="code-wrap">
-    <div class="code-bar"><div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div><span class="code-lang">xml</span><span class="code-filename">pom.xml — Ajouter ces 2 dépendances</span></div>
-    <pre><span class="cmt">&lt;!-- Spring Data JPA + Hibernate (le moteur) --&gt;</span>
-&lt;<span class="tag">dependency</span>&gt;
-  &lt;<span class="tag">groupId</span>&gt;org.springframework.boot&lt;/<span class="tag">groupId</span>&gt;
-  &lt;<span class="tag">artifactId</span>&gt;spring-boot-starter-data-jpa&lt;/<span class="tag">artifactId</span>&gt;
-&lt;/<span class="tag">dependency</span>&gt;
-
-<span class="cmt">&lt;!-- Base de données H2 (légère, en mémoire, pour le dev et les tests) --&gt;</span>
-&lt;<span class="tag">dependency</span>&gt;
-  &lt;<span class="tag">groupId</span>&gt;com.h2database&lt;/<span class="tag">groupId</span>&gt;
-  &lt;<span class="tag">artifactId</span>&gt;h2&lt;/<span class="tag">artifactId</span>&gt;
-  &lt;<span class="tag">scope</span>&gt;runtime&lt;/<span class="tag">scope</span>&gt;
-&lt;/<span class="tag">dependency</span>&gt;</pre>
+    <div class="py-layer" style="background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);width:250px">Spring Data JPA <span class="py-sub">→ interfaces Repository</span></div>
+    <div class="py-layer" style="background:rgba(192,132,252,0.1);border:1px solid rgba(192,132,252,0.3);width:330px">JPA (La norme / les règles)</div>
+    <div class="py-layer" style="background:rgba(251,146,60,0.1);border:1px solid rgba(251,146,60,0.3);width:420px">Hibernate (Le moteur traducteur)</div>
+    <div class="py-layer" style="background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.3);width:510px">JDBC (Le tuyau physique)</div>
+    <div class="py-layer" style="background:rgba(139,148,158,0.1);border:1px solid rgba(139,148,158,0.3);width:580px">Base de Données (H2 / MySQL / PostgreSQL...)</div>
   </div>
 
-  <h3>📝 Étape 2 — La Transformation de ProductDao</h3>
+  <h3>La Transformation de ProductDao</h3>
   <div class="code-wrap">
-    <div class="code-bar"><div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div><span class="code-lang">java</span><span class="code-filename">dao/ProductDao.java — AVANT vs APRÈS</span></div>
-    <pre><span class="cmt">// ❌ AVANT — Interface manuelle + classe d'implémentation de 50 lignes</span>
-<span class="kw">public interface</span> <span class="cls">ProductDao</span> {
-    List&lt;<span class="cls">Product</span>&gt; findAll();
-    <span class="cls">Product</span> findById(<span class="kw">int</span> id);
-    <span class="cls">Product</span> save(<span class="cls">Product</span> p);
-}
-<span class="cmt">// ... + ProductDaoImpl.java avec des dizaines de lignes de code répétitif</span>
-
-
-<span class="cmt">// ✅ APRÈS — Spring Data JPA : uniquement cette interface, ZÉRO implémentation !</span>
+    <div class="code-bar">
+      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
+      <span class="code-lang">java</span>
+      <span class="code-filename">dao/ProductDao.java — AVANT vs APRÈS</span>
+    </div>
+    <pre><span class="cmt">// ✅ APRÈS Spring Data JPA — ZÉRO implémentation nécessaire !</span>
 <span class="kw">public interface</span> <span class="cls">ProductDao</span> <span class="kw">extends</span> <span class="cls">JpaRepository</span>&lt;<span class="cls">Product</span>, <span class="cls">Integer</span>&gt; {
 
-    <span class="cmt">//              ↑ 1er paramètre : L'entité gérée (notre classe Product)</span>
-    <span class="cmt">//                              ↑ 2e paramètre : Le type de l'@Id (int → Integer)</span>
+    <span class="cmt">// MÉTHODES GRATUITES : findAll(), findById(), save(), deleteById(), count()...</span>
 
-    <span class="cmt">// Spring génère un "Proxy" au démarrage avec TOUT le code SQL</span>
-    <span class="cmt">// Tu obtiens GRATUITEMENT : findAll(), save(), deleteById(), count()...</span>
-}
-<span class="cmt">// SUPPRIME ProductDaoImpl.java — elle n'est plus nécessaire !</span></pre>
-  </div>
-
-  <h3>🎁 Les méthodes GRATUITES de JpaRepository</h3>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Méthode</th><th>Ce qu'elle fait</th><th>SQL généré automatiquement</th></tr></thead>
-      <tbody>
-        <tr><td><code>findAll()</code></td><td>Retourne tous les produits</td><td><code>SELECT * FROM product</code></td></tr>
-        <tr><td><code>findById(id)</code></td><td>Trouve un produit par son ID</td><td><code>SELECT * WHERE id=?</code></td></tr>
-        <tr><td><code>save(product)</code></td><td>Insère (si nouveau) ou Met à jour (si ID existant)</td><td><code>INSERT</code> ou <code>UPDATE</code></td></tr>
-        <tr><td><code>deleteById(id)</code></td><td>Supprime le produit avec cet ID</td><td><code>DELETE WHERE id=?</code></td></tr>
-        <tr><td><code>count()</code></td><td>Nombre total de produits</td><td><code>SELECT COUNT(*)</code></td></tr>
-        <tr><td><code>existsById(id)</code></td><td>Vérifie si un produit existe</td><td><code>SELECT COUNT(*) WHERE id=?</code></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>🪄 Les requêtes générées par le nom de la méthode</h3>
-  <p>Spring Data JPA peut générer le SQL uniquement à partir du <strong>nom de la méthode</strong> dans l'interface !</p>
-
-  <div class="code-wrap">
-    <div class="code-bar"><div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div><span class="code-lang">java</span><span class="code-filename">dao/ProductDao.java — La magie des noms de méthodes</span></div>
-    <pre><span class="kw">public interface</span> <span class="cls">ProductDao</span> <span class="kw">extends</span> <span class="cls">JpaRepository</span>&lt;<span class="cls">Product</span>, <span class="cls">Integer</span>&gt; {
-
-    <span class="cmt">// Déclare juste le nom — Spring écrit le SQL tout seul !</span>
-
+    <span class="cmt">// REQUÊTES GÉNÉRÉES PAR LE NOM — Magie de Spring Data JPA !</span>
     List&lt;<span class="cls">Product</span>&gt; <span class="fn">findByPrixGreaterThan</span>(<span class="kw">int</span> prixLimit);
-    <span class="cmt">// SQL généré : SELECT * FROM product WHERE prix > ?</span>
-    <span class="cmt">// Décomposition : findBy=SELECT, Prix=colonne, GreaterThan=opérateur(&gt;)</span>
-
-    List&lt;<span class="cls">Product</span>&gt; <span class="fn">findByPrixLessThan</span>(<span class="kw">int</span> prixMax);
-    <span class="cmt">// SQL généré : SELECT * FROM product WHERE prix &lt; ?</span>
+    <span class="cmt">// → SELECT * FROM product WHERE prix > ?</span>
 
     List&lt;<span class="cls">Product</span>&gt; <span class="fn">findByNomContaining</span>(<span class="cls">String</span> motCle);
-    <span class="cmt">// SQL généré : SELECT * FROM product WHERE nom LIKE '%motCle%'</span>
-
-    List&lt;<span class="cls">Product</span>&gt; <span class="fn">findByNomAndPrix</span>(<span class="cls">String</span> nom, <span class="kw">int</span> prix);
-    <span class="cmt">// SQL généré : SELECT * FROM product WHERE nom=? AND prix=?</span>
+    <span class="cmt">// → SELECT * FROM product WHERE nom LIKE '%motCle%'</span>
 }</pre>
   </div>
 
-  <h3>📝 Requêtes personnalisées avec @Query (JPQL)</h3>
-  <p>Pour les requêtes complexes qu'on ne peut pas exprimer par le nom d'une méthode :</p>
-
-  <div class="code-wrap">
-    <div class="code-bar"><div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div><span class="code-lang">java</span><span class="code-filename">@Query avec JPQL</span></div>
-    <pre><span class="ann">@Query</span>(<span class="str">"SELECT p FROM Product p WHERE p.prix &gt; :prixLimit"</span>)
-<span class="cmt">// ↑ JPQL : On utilise le nom de la CLASSE Java (Product), pas le nom de la table SQL !</span>
-<span class="cmt">// Hibernate traduit ensuite en SQL selon ta base de données (H2, MySQL, Oracle...)</span>
-<span class="cmt">// :prixLimit = paramètre nommé dans la requête JPQL</span>
-
-List&lt;<span class="cls">Product</span>&gt; <span class="fn">findProduitsChers</span>(<span class="ann">@Param</span>(<span class="str">"prixLimit"</span>) <span class="kw">int</span> prix);
-<span class="cmt">// ↑ @Param("prixLimit") = fait le lien entre ":prixLimit" dans JPQL et la variable Java "prix"</span></pre>
-  </div>
-
-  <div class="note info">
-    <div class="note-icon">📡</div>
-    <div class="note-body">
-      <div class="note-title">JPQL vs SQL — Quelle différence ?</div>
-      <p><strong>SQL pur :</strong> <code>SELECT * FROM product WHERE prix > 300</code> (cible les tables SQL)<br>
-      <strong>JPQL :</strong> <code>SELECT p FROM Product p WHERE p.prix > 300</code> (cible les classes Java)<br>
-      Avantage de JPQL : si tu changes de base de données (H2 → MySQL → Oracle), tu ne changes pas tes requêtes. Hibernate adapte le dialecte SQL automatiquement.</p>
-    </div>
-  </div>
-
-  <h3>📊 Flux d'exécution complet avec Spring Data JPA</h3>
-  <div class="flow">
-    <div class="fbox"><div class="fb fb-bl">Requête HTTP</div><div class="fl">Client → GET /Produits</div></div>
-    <div class="farr">→</div>
-    <div class="fbox"><div class="fb fb-or">Controller</div><div class="fl">appelle findAll()</div></div>
-    <div class="farr">→</div>
-    <div class="fbox"><div class="fb fb-pu">Spring Proxy</div><div class="fl">SQL SELECT généré</div></div>
-    <div class="farr">→</div>
-    <div class="fbox"><div class="fb fb-or">Hibernate</div><div class="fl">Traduit & exécute</div></div>
-    <div class="farr">→</div>
-    <div class="fbox"><div class="fb fb-gr">Base H2</div><div class="fl">Retourne les lignes</div></div>
-    <div class="farr">→</div>
-    <div class="fbox"><div class="fb fb-bl">Jackson → JSON</div><div class="fl">Envoyé au client</div></div>
+  <div class="resume">
+    <div class="resume-title">📌 Résumé — Chapitre 10</div>
+    <ul>
+      <li>Spring Data JPA = une interface qui hérite de <code>JpaRepository</code>, zéro implémentation</li>
+      <li>Méthodes gratuites : <code>findAll()</code>, <code>save()</code>, <code>deleteById()</code>, <code>count()</code>...</li>
+      <li>Convention de nommage = génère automatiquement le SQL : <code>findByPrixGreaterThan</code> → <code>WHERE prix > ?</code></li>
+      <li>JPQL avec <code>@Query</code> pour les requêtes complexes</li>
+    </ul>
   </div>
 </div>
 
@@ -1494,108 +1711,56 @@ List&lt;<span class="cls">Product</span>&gt; <span class="fn">findProduitsChers<
   <h3>Les 3 Couches</h3>
   <div class="cards">
     <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:rgba(96,165,250,0.12)">🌐</div>
-        <h4>Couche 1 — API Tier (Contrôleurs)</h4>
-      </div>
-      <div class="card-body">
-        <p><strong>Annotation :</strong> <code>@RestController</code></p>
-        <p><strong>Mission :</strong> Écouter les requêtes HTTP, convertir JSON ↔ objets Java, valider les entrées, déléguer à la couche Service.</p>
-        <p><strong>Règle d'or :</strong> Un contrôleur ne contient <em>aucune logique métier</em>. Pas de calculs, pas de règles de gestion — uniquement de la gestion HTTP.</p>
-      </div>
+      <div class="card-top"><div class="card-icon" style="background:rgba(96,165,250,0.12)">🌐</div><h4>Couche 1 — API Tier (@RestController)</h4></div>
+      <div class="card-body"><p>Écoute les requêtes HTTP, convertit JSON ↔ objets Java, valide les entrées, délègue au Service. <strong>Règle : aucune logique métier ici.</strong></p></div>
     </div>
     <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:rgba(52,211,153,0.12)">🧠</div>
-        <h4>Couche 2 — Service Tier (Logique métier)</h4>
-      </div>
-      <div class="card-body">
-        <p><strong>Annotation :</strong> <code>@Service</code></p>
-        <p><strong>Mission :</strong> Appliquer les règles métier (calculer la TVA, vérifier les permissions, appliquer des remises).</p>
-        <p><strong>Avantage :</strong> Cette couche est indépendante du Web — elle peut être utilisée par une API REST, une app mobile, ou une tâche automatique.</p>
-      </div>
+      <div class="card-top"><div class="card-icon" style="background:rgba(52,211,153,0.12)">🧠</div><h4>Couche 2 — Service Tier (@Service)</h4></div>
+      <div class="card-body"><p>Applique les règles métier : calculer la TVA, vérifier les permissions. Indépendante du Web — réutilisable partout.</p></div>
     </div>
     <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:rgba(192,132,252,0.12)">💾</div>
-        <h4>Couche 3 — Persistence Tier (Données)</h4>
-      </div>
-      <div class="card-body">
-        <p><strong>Composants :</strong> Classes <code>@Entity</code> + interfaces <code>JpaRepository</code></p>
-        <p><strong>Mission :</strong> Faire le pont entre Java et SQL. L'Entité représente la table. Le Repository effectue les opérations CRUD.</p>
-      </div>
+      <div class="card-top"><div class="card-icon" style="background:rgba(192,132,252,0.12)">💾</div><h4>Couche 3 — Persistence Tier (JPA)</h4></div>
+      <div class="card-body"><p>Classes <code>@Entity</code> + interfaces <code>JpaRepository</code>. Fait le pont entre Java et SQL.</p></div>
     </div>
   </div>
 
-  <h3>🎯 Pourquoi 3 couches ? Les 3 bénéfices</h3>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Bénéfice</th><th>Explication pratique</th></tr></thead>
-      <tbody>
-        <tr><td class="ok"><strong>Maintenabilité</strong></td><td>Changer de H2 à MySQL ? Tu ne modifies que la couche Persistence. Le Contrôleur et le Service ne bougent pas.</td></tr>
-        <tr><td class="ok"><strong>Testabilité</strong></td><td>On peut tester la logique métier (Service) sans démarrer de serveur web ni de base de données (grâce aux Mocks).</td></tr>
-        <tr><td class="ok"><strong>Réutilisabilité</strong></td><td>Plusieurs Contrôleurs peuvent partager le même Service. Plusieurs Services peuvent partager le même Repository.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>💻 CRUD Complet — Le Code Final</h3>
+  <h3>💻 CRUD Complet — Code Final</h3>
   <div class="code-wrap">
-    <div class="code-bar"><div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div><span class="code-lang">java</span><span class="code-filename">ProductController.java — CRUD complet avec Spring Data JPA</span></div>
+    <div class="code-bar">
+      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
+      <span class="code-lang">java</span>
+      <span class="code-filename">ProductController.java — CRUD complet</span>
+    </div>
     <pre><span class="ann">@RestController</span>
 <span class="kw">public class</span> <span class="cls">ProductController</span> {
 
-    <span class="kw">private final</span> <span class="cls">ProductDao</span> productDao;  <span class="cmt">// Spring injecte automatiquement</span>
+    <span class="kw">private final</span> <span class="cls">ProductDao</span> productDao;
     <span class="kw">public</span> <span class="fn">ProductController</span>(<span class="cls">ProductDao</span> productDao) { <span class="kw">this</span>.productDao = productDao; }
 
-    <span class="cmt">// ══════════════════════════════════════════════════</span>
-    <span class="cmt">// ✅ LIRE TOUS — GET /Produits</span>
-    <span class="cmt">// ══════════════════════════════════════════════════</span>
     <span class="ann">@GetMapping</span>(<span class="str">"/Produits"</span>)
-    <span class="kw">public</span> List&lt;<span class="cls">Product</span>&gt; <span class="fn">listeProduits</span>() {
-        <span class="kw">return</span> productDao.<span class="fn">findAll</span>();
-        <span class="cmt">// Spring Data JPA génère : SELECT * FROM product;</span>
-    }
+    <span class="kw">public</span> List&lt;<span class="cls">Product</span>&gt; <span class="fn">listeProduits</span>() { <span class="kw">return</span> productDao.<span class="fn">findAll</span>(); }
 
-    <span class="cmt">// ══════════════════════════════════════════════════</span>
-    <span class="cmt">// ✅ LIRE UN — GET /Produits/{id}</span>
-    <span class="cmt">// ══════════════════════════════════════════════════</span>
     <span class="ann">@GetMapping</span>(<span class="str">"/Produits/{id}"</span>)
     <span class="kw">public</span> <span class="cls">Product</span> <span class="fn">afficherUnProduit</span>(<span class="ann">@PathVariable</span> <span class="kw">int</span> id) {
         <span class="cls">Product</span> p = productDao.<span class="fn">findById</span>(id).<span class="fn">orElse</span>(<span class="kw">null</span>);
-        <span class="kw">if</span> (p == <span class="kw">null</span>) <span class="kw">throw new</span> <span class="cls">ProduitIntrouvableException</span>(<span class="str">"Produit introuvable : "</span> + id);
+        <span class="kw">if</span> (p == <span class="kw">null</span>) <span class="kw">throw new</span> <span class="cls">ProduitIntrouvableException</span>(<span class="str">"Introuvable : "</span> + id);
         <span class="kw">return</span> p;
     }
 
-    <span class="cmt">// ══════════════════════════════════════════════════</span>
-    <span class="cmt">// ✅ CRÉER — POST /Produits</span>
-    <span class="cmt">// ══════════════════════════════════════════════════</span>
     <span class="ann">@PostMapping</span>(<span class="str">"/Produits"</span>)
-    <span class="ann">@ResponseStatus</span>(HttpStatus.CREATED)  <span class="cmt">// Renvoie 201 au lieu de 200</span>
+    <span class="ann">@ResponseStatus</span>(HttpStatus.CREATED)
     <span class="kw">public</span> <span class="cls">Product</span> <span class="fn">ajouterProduit</span>(<span class="ann">@Valid</span> <span class="ann">@RequestBody</span> <span class="cls">Product</span> product) {
-        <span class="cmt">// @Valid : vérifie les règles @Size, @Min dans Product</span>
-        <span class="cmt">// Si invalide → Spring retourne automatiquement 400 Bad Request</span>
         <span class="kw">return</span> productDao.<span class="fn">save</span>(product);
-        <span class="cmt">// Spring Data JPA génère : INSERT INTO product (nom, prix) VALUES (?, ?)</span>
     }
 
-    <span class="cmt">// ══════════════════════════════════════════════════</span>
-    <span class="cmt">// ✅ MODIFIER — PUT /Produits</span>
-    <span class="cmt">// ══════════════════════════════════════════════════</span>
     <span class="ann">@PutMapping</span>(<span class="str">"/Produits"</span>)
     <span class="kw">public</span> <span class="cls">Product</span> <span class="fn">updateProduit</span>(<span class="ann">@RequestBody</span> <span class="cls">Product</span> product) {
-        <span class="cmt">// .save() AVEC un ID existant = UPDATE (pas INSERT)</span>
-        <span class="cmt">// Spring Data JPA génère : UPDATE product SET nom=?, prix=? WHERE id=?</span>
-        <span class="kw">return</span> productDao.<span class="fn">save</span>(product);
+        <span class="kw">return</span> productDao.<span class="fn">save</span>(product); <span class="cmt">// save() avec ID existant = UPDATE</span>
     }
 
-    <span class="cmt">// ══════════════════════════════════════════════════</span>
-    <span class="cmt">// ✅ SUPPRIMER — DELETE /Produits/{id}</span>
-    <span class="cmt">// ══════════════════════════════════════════════════</span>
     <span class="ann">@DeleteMapping</span>(<span class="str">"/Produits/{id}"</span>)
     <span class="kw">public void</span> <span class="fn">supprimerProduit</span>(<span class="ann">@PathVariable</span> <span class="kw">int</span> id) {
         productDao.<span class="fn">deleteById</span>(id);
-        <span class="cmt">// Spring Data JPA génère : DELETE FROM product WHERE id=?</span>
     }
 }</pre>
   </div>
@@ -1618,95 +1783,18 @@ List&lt;<span class="cls">Product</span>&gt; <span class="fn">findProduitsChers<
     </div>
   </div>
 
-  <h3>😱 Le Problème : une API qui ment !</h3>
-  <div class="note danger">
-    <div class="note-icon">🚨</div>
-    <div class="note-body">
-      <div class="note-title">200 OK avec une réponse vide = mensonge !</div>
-      <p>Si un client fait <code>GET /Produits/999</code> et que le produit 999 n'existe pas, notre API répond <strong>200 OK avec un corps vide</strong>. C'est faux ! 200 signifie "tout s'est bien passé". Mais rien n'a été trouvé. Pour une autre machine, c'est très trompeur et peut provoquer des bugs en cascade.</p>
-    </div>
-  </div>
-
-  <h3>🏗️ Étape 1 — Créer une Exception personnalisée</h3>
-
+  <h3>Exception personnalisée avec @ResponseStatus</h3>
   <div class="code-wrap">
-    <div class="code-bar"><div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div><span class="code-lang">java</span><span class="code-filename">web/exceptions/ProduitIntrouvableException.java</span></div>
-    <pre><span class="kw">package</span> com.ecommerce.microcommerce.web.exceptions;
-
-<span class="ann">@ResponseStatus</span>(HttpStatus.NOT_FOUND)
-<span class="cmt">// ↑ MAGIE : Lie cette exception au code HTTP 404 Not Found</span>
-<span class="cmt">// Dès que cette exception est lancée, Spring change le statut de la réponse</span>
-
+    <div class="code-bar">
+      <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
+      <span class="code-lang">java</span>
+      <span class="code-filename">exceptions/ProduitIntrouvableException.java</span>
+    </div>
+    <pre><span class="ann">@ResponseStatus</span>(HttpStatus.NOT_FOUND)  <span class="cmt">// → 404 automatiquement</span>
 <span class="kw">public class</span> <span class="cls">ProduitIntrouvableException</span> <span class="kw">extends</span> <span class="cls">RuntimeException</span> {
-    <span class="cmt">// RuntimeException = erreur qui survient durant l'exécution (pas à la compilation)</span>
-
     <span class="kw">public</span> <span class="fn">ProduitIntrouvableException</span>(<span class="cls">String</span> message) {
         <span class="kw">super</span>(message);
-        <span class="cmt">// super() passe le message au parent (RuntimeException)</span>
-        <span class="cmt">// Spring le récupère pour l'afficher dans les logs et la réponse JSON</span>
     }
-}</pre>
-  </div>
-
-  <p>Dans le Contrôleur, on l'utilise ainsi :</p>
-  <div class="code-wrap">
-    <div class="code-bar"><div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div><span class="code-lang">java</span></div>
-    <pre><span class="ann">@GetMapping</span>(<span class="str">"/Produits/{id}"</span>)
-<span class="kw">public</span> <span class="cls">Product</span> <span class="fn">afficherUnProduit</span>(<span class="ann">@PathVariable</span> <span class="kw">int</span> id) {
-    <span class="cls">Product</span> p = productDao.<span class="fn">findById</span>(id).<span class="fn">orElse</span>(<span class="kw">null</span>);
-
-    <span class="kw">if</span> (p == <span class="kw">null</span>) {
-        <span class="cmt">// Le produit n'existe pas → on lance une exception</span>
-        <span class="cmt">// Spring intercepte → retourne 404 Not Found au client</span>
-        <span class="kw">throw new</span> <span class="cls">ProduitIntrouvableException</span>(<span class="str">"Produit introuvable avec l'id : "</span> + id);
-    }
-
-    <span class="kw">return</span> p;  <span class="cmt">// Produit trouvé → 200 OK + JSON</span>
-}</pre>
-  </div>
-
-  <h3>🔒 Étape 2 — Ajouter des règles de validation dans le Modèle</h3>
-
-  <div class="code-wrap">
-    <div class="code-bar"><div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div><span class="code-lang">xml</span><span class="code-filename">pom.xml — Ajouter la dépendance validation</span></div>
-    <pre>&lt;<span class="tag">dependency</span>&gt;
-  &lt;<span class="tag">groupId</span>&gt;org.springframework.boot&lt;/<span class="tag">groupId</span>&gt;
-  &lt;<span class="tag">artifactId</span>&gt;spring-boot-starter-validation&lt;/<span class="tag">artifactId</span>&gt;
-&lt;/<span class="tag">dependency</span>&gt;</pre>
-  </div>
-
-  <div class="code-wrap">
-    <div class="code-bar"><div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div><span class="code-lang">java</span><span class="code-filename">model/Product.java — Avec annotations de validation</span></div>
-    <pre><span class="ann">@Entity</span>
-<span class="kw">public class</span> <span class="cls">Product</span> {
-
-    <span class="ann">@Id</span>
-    <span class="ann">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)
-    <span class="kw">private int</span> id;
-
-    <span class="ann">@Size</span>(min = <span class="num">3</span>, message = <span class="str">"Le nom doit avoir au moins 3 caractères"</span>)
-    <span class="cmt">// ↑ Si le nom a moins de 3 chars → requête rejetée avec 400 Bad Request</span>
-    <span class="kw">private</span> <span class="cls">String</span> nom;
-
-    <span class="ann">@Min</span>(value = <span class="num">1</span>, message = <span class="str">"Le prix doit être supérieur à 0"</span>)
-    <span class="cmt">// ↑ Si le prix est 0 ou négatif → requête rejetée avec 400 Bad Request</span>
-    <span class="kw">private int</span> prix;
-}</pre>
-  </div>
-
-  <h3>✅ Étape 3 — Activer la validation dans le Contrôleur avec @Valid</h3>
-
-  <div class="code-wrap">
-    <div class="code-bar"><div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div><span class="code-lang">java</span></div>
-    <pre><span class="ann">@PostMapping</span>(<span class="str">"/Produits"</span>)
-<span class="ann">@ResponseStatus</span>(HttpStatus.CREATED)
-<span class="kw">public</span> <span class="cls">Product</span> <span class="fn">ajouterProduit</span>(
-    <span class="ann">@Valid</span>         <span class="cmt">// ← Active les règles @Size et @Min définies dans Product</span>
-    <span class="ann">@RequestBody</span> <span class="cls">Product</span> product
-) {
-    <span class="cmt">// Si @Valid échoue → Spring retourne automatiquement 400 Bad Request</span>
-    <span class="cmt">// avec les détails sur quel champ a violé quelle règle</span>
-    <span class="kw">return</span> productDao.<span class="fn">save</span>(product);
 }</pre>
   </div>
 
@@ -1717,30 +1805,20 @@ List&lt;<span class="cls">Product</span>&gt; <span class="fn">findProduitsChers<
       <tbody>
         <tr><td>Données lues avec succès</td><td class="ok"><strong>200 OK</strong></td><td>Standard pour GET, PUT, DELETE réussis</td></tr>
         <tr><td>Ressource créée avec succès</td><td class="ok"><strong>201 Created</strong></td><td>Plus précis que 200 pour un POST de création</td></tr>
-        <tr><td>Ressource introuvable (ID inexistant)</td><td class="ko"><strong>404 Not Found</strong></td><td>Ne jamais retourner 200 avec un corps vide !</td></tr>
-        <tr><td>Données invalides (nom trop court, prix négatif)</td><td class="med"><strong>400 Bad Request</strong></td><td>Le client a envoyé des données incorrectes</td></tr>
-        <tr><td>Crash / bug dans le code Java</td><td class="ko"><strong>500 Internal Error</strong></td><td>Réservé aux vraies exceptions non gérées</td></tr>
+        <tr><td>Ressource introuvable</td><td class="ko"><strong>404 Not Found</strong></td><td>Ne jamais retourner 200 avec un corps vide !</td></tr>
+        <tr><td>Données invalides</td><td class="med"><strong>400 Bad Request</strong></td><td>Le client a envoyé des données incorrectes</td></tr>
+        <tr><td>Crash / bug Java</td><td class="ko"><strong>500 Internal Error</strong></td><td>Réservé aux vraies exceptions non gérées</td></tr>
       </tbody>
     </table>
-  </div>
-
-  <div class="note warn">
-    <div class="note-icon">🔐</div>
-    <div class="note-body">
-      <div class="note-title">Sécurité : Visibilité des messages d'erreur</div>
-      <p><strong>En développement :</strong> Ajouter <code>server.error.include-message=always</code> dans <code>application.properties</code> pour voir les messages d'erreur.<br>
-      <strong>En production :</strong> SUPPRIMER cette ligne ! Les messages d'erreur détaillés aident les hackers à comprendre les failles de ton code.</p>
-    </div>
   </div>
 
   <div class="resume">
     <div class="resume-title">📌 Résumé — Chapitre 12</div>
     <ul>
       <li>Ne jamais retourner 200 OK quand une ressource n'existe pas — utiliser 404</li>
-      <li>Réserver le 500 aux vrais crashs de code, pas aux données manquantes</li>
       <li><code>@ResponseStatus</code> sur une exception lie l'exception à un code HTTP</li>
       <li><code>@Valid</code> active la vérification des annotations de validation dans le modèle</li>
-      <li>Annotations de validation : <code>@Size</code>, <code>@Min</code>, <code>@NotNull</code>, <code>@Email</code>...</li>
+      <li>Annotations : <code>@Size</code>, <code>@Min</code>, <code>@NotNull</code>, <code>@Email</code>...</li>
     </ul>
   </div>
 </div>
@@ -1748,11 +1826,11 @@ List&lt;<span class="cls">Product</span>&gt; <span class="fn">findProduitsChers<
 <hr class="sep">
 
 <!-- ████████████████████████████████████████
-     SECTION EXAMEN
+     SECTION EXAMEN SPRING BOOT
 ████████████████████████████████████████ -->
 <div class="exam-wrap" id="exam">
   <div class="exam-head">
-    <h2>✏️ Exercices &amp; QCM — Prépare-toi à l'examen !</h2>
+    <h2>✏️ Exercices &amp; QCM Spring Boot — Prépare-toi à l'examen !</h2>
     <p>Teste tes connaissances avec des questions à choix multiples, des exercices de définition et de codage.</p>
   </div>
   <div class="exam-body">
@@ -1769,7 +1847,7 @@ List&lt;<span class="cls">Product</span>&gt; <span class="fn">findProduitsChers<
         <li class="opt" onclick="repond(this,false)">D) Elle ne peut être écrite qu'en Python</li>
       </ul>
       <button class="reveal-btn" onclick="toggle(this)">Voir l'explication</button>
-      <div class="answer-box">✅ <strong>Réponse : B</strong> — Dans un monolithe, si la Feature A reçoit beaucoup de trafic, tu dois dupliquer l'application ENTIÈRE (Features A + B + C), même si B et C n'ont pas besoin de scaling. C'est un gaspillage énorme de ressources. Les microservices résolvent ce problème en permettant de scaler uniquement le service concerné.</div>
+      <div class="answer-box">✅ <strong>Réponse : B</strong> — Dans un monolithe, si la Feature A reçoit beaucoup de trafic, tu dois dupliquer l'application ENTIÈRE (A + B + C), même si B et C n'en ont pas besoin. Les microservices permettent de scaler uniquement le service concerné.</div>
     </div>
 
     <div class="q-card">
@@ -1782,7 +1860,7 @@ List&lt;<span class="cls">Product</span>&gt; <span class="fn">findProduitsChers<
         <li class="opt" onclick="repond(this,false)">D) @Component + @Configuration</li>
       </ul>
       <button class="reveal-btn" onclick="toggle(this)">Voir l'explication</button>
-      <div class="answer-box">✅ <strong>Réponse : B</strong> — <code>@Controller</code> permet de gérer les requêtes HTTP. <code>@ResponseBody</code> indique que la valeur de retour des méthodes doit être sérialisée directement en JSON et envoyée au client (pas de page HTML). <code>@RestController</code> = les deux en une seule annotation.</div>
+      <div class="answer-box">✅ <strong>Réponse : B</strong> — <code>@Controller</code> gère les requêtes HTTP. <code>@ResponseBody</code> sérialise le retour directement en JSON. <code>@RestController</code> = les deux en une seule annotation.</div>
     </div>
 
     <div class="q-card">
@@ -1795,20 +1873,20 @@ List&lt;<span class="cls">Product</span>&gt; <span class="fn">findProduitsChers<
         <li class="opt" onclick="repond(this,false)">D) @RequestHeader</li>
       </ul>
       <button class="reveal-btn" onclick="toggle(this)">Voir l'explication</button>
-      <div class="answer-box">✅ <strong>Réponse : C</strong> — <code>@PathVariable</code> fait le pont entre la variable dans l'URL <code>{id}</code> et le paramètre de la méthode Java. Exemple : <code>@GetMapping("/Produits/{id}")</code> + <code>@PathVariable int id</code> → si l'URL est /Produits/42, alors id = 42.</div>
+      <div class="answer-box">✅ <strong>Réponse : C</strong> — <code>@PathVariable</code> fait le pont entre la variable dans l'URL <code>{id}</code> et le paramètre Java. Si l'URL est /Produits/42, alors <code>id = 42</code>.</div>
     </div>
 
     <div class="q-card">
       <div class="q-num">Question 04</div>
-      <p class="q-text">Quel est le rôle de <strong>Jackson</strong> dans une application Spring Boot ?</p>
+      <p class="q-text">Quelle est la relation exacte entre JPA et Hibernate ?</p>
       <ul class="opts">
-        <li class="opt" onclick="repond(this,true)">A) Convertit automatiquement les objets Java en JSON (et inversement)</li>
-        <li class="opt" onclick="repond(this,false)">B) C'est le serveur web intégré</li>
-        <li class="opt" onclick="repond(this,false)">C) Il gère la connexion à la base de données</li>
-        <li class="opt" onclick="repond(this,false)">D) Il s'occupe du routage HTTP</li>
+        <li class="opt" onclick="repond(this,false)">A) JPA est une implémentation de Hibernate</li>
+        <li class="opt" onclick="repond(this,true)">B) JPA est la spécification (les règles), Hibernate est une implémentation de ces règles</li>
+        <li class="opt" onclick="repond(this,false)">C) Ce sont exactement la même chose</li>
+        <li class="opt" onclick="repond(this,false)">D) Hibernate est le successeur de JPA</li>
       </ul>
       <button class="reveal-btn" onclick="toggle(this)">Voir l'explication</button>
-      <div class="answer-box">✅ <strong>Réponse : A</strong> — Jackson est une librairie de sérialisation/désérialisation. Il lit les Getters d'un objet Java pour produire du JSON, et appelle les Setters quand il parse du JSON entrant pour créer un objet Java. Il est inclus automatiquement via <code>spring-boot-starter-web</code>.</div>
+      <div class="answer-box">✅ <strong>Réponse : B</strong> — JPA = Code de la Route (règles). Hibernate = la Voiture (exécute les règles). Spring Boot utilise JPA comme API standard, mais c'est Hibernate qui génère le SQL en arrière-plan.</div>
     </div>
 
     <div class="q-card">
@@ -1821,101 +1899,21 @@ List&lt;<span class="cls">Product</span>&gt; <span class="fn">findProduitsChers<
         <li class="opt" onclick="repond(this,false)">D) L'ancien produit est supprimé et un nouveau est inséré</li>
       </ul>
       <button class="reveal-btn" onclick="toggle(this)">Voir l'explication</button>
-      <div class="answer-box">✅ <strong>Réponse : C</strong> — La méthode <code>.save()</code> de Spring Data JPA est intelligente. Si l'objet a un ID qui existe déjà en base → génère un <code>UPDATE</code>. Si l'ID est null ou nouveau → génère un <code>INSERT</code>. C'est pourquoi on utilise la même méthode pour créer ET modifier !</div>
+      <div class="answer-box">✅ <strong>Réponse : C</strong> — <code>.save()</code> de Spring Data JPA est intelligente : ID existant → <code>UPDATE</code>, ID null/nouveau → <code>INSERT</code>. C'est pourquoi on utilise la même méthode pour créer ET modifier !</div>
     </div>
 
-    <div class="q-card">
-      <div class="q-num">Question 06</div>
-      <p class="q-text">Quel code HTTP doit retourner ton API quand un produit n'est pas trouvé en base de données ?</p>
-      <ul class="opts">
-        <li class="opt" onclick="repond(this,false)">A) 200 OK avec un corps vide</li>
-        <li class="opt" onclick="repond(this,false)">B) 500 Internal Server Error</li>
-        <li class="opt" onclick="repond(this,true)">C) 404 Not Found</li>
-        <li class="opt" onclick="repond(this,false)">D) 204 No Content</li>
-      </ul>
-      <button class="reveal-btn" onclick="toggle(this)">Voir l'explication</button>
-      <div class="answer-box">✅ <strong>Réponse : C</strong> — 404 Not Found est le code standard HTTP pour "la ressource demandée n'existe pas". Retourner 200 avec un corps vide est trompeur. Retourner 500 est incorrect (le serveur n'a pas crashé, c'est juste que la donnée n'existe pas).</div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-num">Question 07</div>
-      <p class="q-text">Quelle est la relation exacte entre JPA et Hibernate ?</p>
-      <ul class="opts">
-        <li class="opt" onclick="repond(this,false)">A) JPA est une implémentation de Hibernate</li>
-        <li class="opt" onclick="repond(this,true)">B) JPA est la spécification (les règles), Hibernate est une implémentation de ces règles</li>
-        <li class="opt" onclick="repond(this,false)">C) Ce sont exactement la même chose avec des noms différents</li>
-        <li class="opt" onclick="repond(this,false)">D) Hibernate est le successeur de JPA qui le remplace</li>
-      </ul>
-      <button class="reveal-btn" onclick="toggle(this)">Voir l'explication</button>
-      <div class="answer-box">✅ <strong>Réponse : B</strong> — JPA définit l'API et les annotations (@Entity, @Id...). Hibernate est le moteur réel qui lit ces annotations et génère le SQL. Analogie : JPA = Code de la Route (les règles) / Hibernate = la Voiture (l'outil qui suit les règles). Dans Spring Boot, on code avec les standards JPA mais c'est Hibernate qui travaille en arrière-plan.</div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-num">Question 08</div>
-      <p class="q-text">Qu'est-ce que <code>@SpringBootApplication</code> combine réellement ?</p>
-      <ul class="opts">
-        <li class="opt" onclick="repond(this,false)">A) @RestController + @Service + @Repository</li>
-        <li class="opt" onclick="repond(this,true)">B) @Configuration + @EnableAutoConfiguration + @ComponentScan</li>
-        <li class="opt" onclick="repond(this,false)">C) @Entity + @Table + @Id</li>
-        <li class="opt" onclick="repond(this,false)">D) @GetMapping + @PostMapping + @DeleteMapping</li>
-      </ul>
-      <button class="reveal-btn" onclick="toggle(this)">Voir l'explication</button>
-      <div class="answer-box">✅ <strong>Réponse : B</strong> — <code>@Configuration</code> permet de définir des Beans de configuration. <code>@EnableAutoConfiguration</code> active la détection et configuration automatique des librairies. <code>@ComponentScan</code> dit à Spring de scanner les packages pour trouver tous les composants (@Controller, @Service, @Repository...).</div>
-    </div>
-
-    <div class="exam-section-title" style="margin-top:32px">Partie B — Questions ouvertes</div>
-
-    <div class="q-card">
-      <div class="q-num">Question 09 — Définition</div>
-      <p class="q-text">Explique avec tes propres mots la règle "Database per Service" dans l'architecture microservices et pourquoi elle est fondamentale.</p>
-      <button class="reveal-btn" onclick="toggle(this)">Voir la réponse modèle</button>
-      <div class="answer-box"><strong>Réponse :</strong> Chaque microservice doit posséder sa propre base de données privée qu'aucun autre service ne peut accéder directement. Les services ne peuvent communiquer qu'à travers leurs APIs. Cette règle est fondamentale car elle garantit l'<strong>indépendance réelle</strong> des services : si le Service Produits change son schéma de BDD, le Service Commandes n'est pas affecté. Sans cette règle, les services deviennent couplés à travers la base de données partagée, ce qui recréé les mêmes problèmes que le monolithe.</div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-num">Question 10 — Comparaison</div>
-      <p class="q-text">Explique la différence entre <code>@RequestBody</code> et <code>@PathVariable</code>. Donne un exemple concret pour chacun.</p>
-      <button class="reveal-btn" onclick="toggle(this)">Voir la réponse modèle</button>
-      <div class="answer-box">
-        <strong>@PathVariable :</strong> Extrait une valeur depuis l'URL elle-même. Exemple : <code>GET /Produits/42</code> → <code>@GetMapping("/Produits/{id}")</code> + <code>@PathVariable int id</code> → id = 42. Utilisé pour identifier quelle ressource on veut.<br><br>
-        <strong>@RequestBody :</strong> Lit le corps JSON de la requête et le convertit en objet Java via Jackson. Exemple : <code>POST /Produits</code> avec corps <code>{"nom":"iPad","prix":800}</code> → <code>@RequestBody Product product</code> → product.getNom() = "iPad". Utilisé pour envoyer des données complètes (création/modification).<br><br>
-        <strong>Règle simple :</strong> @PathVariable = identifier une ressource dans l'URL. @RequestBody = envoyer des données dans le corps de la requête.
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-num">Question 11 — Trace d'exécution</div>
-      <p class="q-text">Décris étape par étape ce qui se passe quand un client envoie <code>POST /Produits</code> avec le JSON <code>{"nom":"MacBook","prix":2500}</code>.</p>
-      <button class="reveal-btn" onclick="toggle(this)">Voir la réponse modèle</button>
-      <div class="answer-box">
-        <strong>Étapes :</strong><br>
-        1. Le client envoie une requête HTTP POST avec le JSON dans le corps<br>
-        2. Le Dispatcher Servlet de Spring reçoit la requête et cherche quelle méthode correspond au pattern POST /Produits<br>
-        3. Il trouve la méthode <code>ajouterProduit()</code> dans ProductController<br>
-        4. <code>@RequestBody</code> déclenche Jackson → il appelle <code>setNom("MacBook")</code> et <code>setPrix(2500)</code> sur un nouvel objet Product<br>
-        5. <code>@Valid</code> vérifie les règles : nom ≥ 3 chars ✅, prix ≥ 1 ✅<br>
-        6. <code>productDao.save(product)</code> est appelé<br>
-        7. Spring Data JPA Proxy génère : <code>INSERT INTO product (nom, prix) VALUES ('MacBook', 2500)</code><br>
-        8. Hibernate exécute le SQL sur H2<br>
-        9. Le produit est retourné avec son ID auto-généré<br>
-        10. <code>@ResponseStatus(HttpStatus.CREATED)</code> → Spring envoie 201 Created + le JSON du produit créé
-      </div>
-    </div>
-
-    <div class="exam-section-title" style="margin-top:32px">Partie C — Exercices de codage</div>
+    <div class="exam-section-title" style="margin-top:32px">Partie B — Exercices de codage</div>
 
     <div class="q-card">
       <div class="q-num">Exercice 01</div>
       <p class="q-text">Écris l'interface <code>ProductDao</code> avec Spring Data JPA incluant une méthode personnalisée qui retourne tous les produits dont le prix est <strong>inférieur</strong> à une limite donnée.</p>
       <button class="reveal-btn" onclick="toggle(this)">Voir la solution</button>
       <div class="answer-box">
-<pre style="background:#070d18;padding:14px;border-radius:8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;overflow-x:auto;margin:0">public interface ProductDao extends JpaRepository&lt;Product, Integer&gt; {
-
-    // La convention de nommage génère automatiquement :
-    // SELECT * FROM product WHERE prix &lt; ?
+<pre>public interface ProductDao extends JpaRepository&lt;Product, Integer&gt; {
+    // Convention de nommage → SELECT * FROM product WHERE prix &lt; ?
     List&lt;Product&gt; findByPrixLessThan(int prixMax);
 
-    // Pour aller plus loin : trouver par nom contenant un mot-clé
+    // Bonus : chercher par nom
     List&lt;Product&gt; findByNomContaining(String motCle);
 }</pre>
       </div>
@@ -1923,81 +1921,42 @@ List&lt;<span class="cls">Product</span>&gt; <span class="fn">findProduitsChers<
 
     <div class="q-card">
       <div class="q-num">Exercice 02</div>
-      <p class="q-text">Écris la classe <code>ProduitIntrouvableException</code> qui provoque l'envoi d'un HTTP 404 avec un message d'erreur personnalisé.</p>
+      <p class="q-text">Écris la classe <code>ProduitIntrouvableException</code> qui provoque l'envoi d'un HTTP 404.</p>
       <button class="reveal-btn" onclick="toggle(this)">Voir la solution</button>
       <div class="answer-box">
-<pre style="background:#070d18;padding:14px;border-radius:8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;overflow-x:auto;margin:0">package com.ecommerce.microcommerce.web.exceptions;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
-
-@ResponseStatus(HttpStatus.NOT_FOUND)   // → 404
+<pre>@ResponseStatus(HttpStatus.NOT_FOUND)
 public class ProduitIntrouvableException extends RuntimeException {
-
     public ProduitIntrouvableException(String message) {
-        super(message);  // Transmet le message au parent
+        super(message);
     }
 }
 
 // Utilisation dans le Contrôleur :
 // if (product == null)
-//     throw new ProduitIntrouvableException("Produit introuvable : " + id);
-</pre>
+//     throw new ProduitIntrouvableException("Produit introuvable : " + id);</pre>
       </div>
     </div>
 
     <div class="q-card">
       <div class="q-num">Exercice 03</div>
-      <p class="q-text">Ajoute les annotations de validation correctes à la classe Product pour que : (1) le nom soit obligatoire et fasse au moins 3 caractères, (2) le prix soit d'au minimum 1, (3) le nom ne puisse pas être null.</p>
+      <p class="q-text">Ajoute les annotations de validation : nom obligatoire (min 3 chars, non null), prix minimum 1.</p>
       <button class="reveal-btn" onclick="toggle(this)">Voir la solution</button>
       <div class="answer-box">
-<pre style="background:#070d18;padding:14px;border-radius:8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;overflow-x:auto;margin:0">import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-
-@Entity
+<pre>@Entity
 public class Product {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotNull(message = "Le nom ne peut pas être null")  // (3) obligatoire
-    @Size(min = 3, message = "Le nom doit avoir au moins 3 caractères")  // (1) min 3
+    @NotNull(message = "Le nom ne peut pas être null")
+    @Size(min = 3, message = "Le nom doit avoir au moins 3 caractères")
     private String nom;
 
-    @Min(value = 1, message = "Le prix doit être d'au minimum 1")  // (2) min 1
+    @Min(value = 1, message = "Le prix doit être d'au minimum 1")
     private int prix;
-
     // constructeurs, getters, setters...
 }
-
-// Dans le Contrôleur : @Valid @RequestBody Product product
-// → Spring vérifie automatiquement ces règles à la réception du JSON</pre>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-num">Exercice 04 — Bonus</div>
-      <p class="q-text">Écris une méthode dans le Contrôleur pour supprimer un produit par son ID, en retournant un message de succès si le produit existe, ou une exception 404 si l'ID n'est pas trouvé.</p>
-      <button class="reveal-btn" onclick="toggle(this)">Voir la solution</button>
-      <div class="answer-box">
-<pre style="background:#070d18;padding:14px;border-radius:8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;overflow-x:auto;margin:0">@DeleteMapping("/Produits/{id}")
-public String supprimerProduit(@PathVariable int id) {
-
-    // Vérifier d'abord si le produit existe
-    if (!productDao.existsById(id)) {
-        throw new ProduitIntrouvableException(
-            "Impossible de supprimer : produit introuvable avec l'id " + id
-        );
-    }
-
-    productDao.deleteById(id);
-    // Spring Data JPA génère : DELETE FROM product WHERE id=?
-
-    return "Produit " + id + " supprimé avec succès !";
-    // → 200 OK + message de confirmation
-}</pre>
+// Dans le Contrôleur : @Valid @RequestBody Product product</pre>
       </div>
     </div>
 
@@ -2007,9 +1966,9 @@ public String supprimerProduit(@PathVariable int id) {
 </div><!-- /container -->
 
 <footer>
-  <p>📚 Architecture Microservices avec Spring Boot — Cours Complet</p>
-  <p>Prof. Chemlal Yman · Parties 1 à 7 · Spring Boot 3.x · Java 17 · 🇫🇷 En Français</p>
-  <p style="margin-top:8px;font-size:11px;opacity:0.5">Toutes les explications ont été extraites et synthétisées depuis les 6 fichiers PDF du cours</p>
+  <p>📚 Plateforme J2EE &amp; Architecture Microservices avec Spring Boot — Cours Complet</p>
+  <p>Prof. Chemlal Yman · Module J2EE (Servlet/JSP/JDBC) + Module Spring Boot 3.x · Java 17 · 🇫🇷 En Français</p>
+  <p style="margin-top:8px;font-size:11px;opacity:0.5">Cours J2EE extrait de cours_j2ee.pdf · Cours Microservices intégré depuis le site original</p>
 </footer>
 
 <script src="script.js">
